@@ -17,7 +17,7 @@ classname = "F5 Application Study Tool Labs"
 astversion = "v0.7"
 
 # OPTIONAL: The URL to the GitHub Repository for this class
-github_repo = "https://github.com/tholemu/f5-ast-labs"
+github_repo = "https://github.com/f5devcentral/f5-ast-labs"
 
 #
 # END CONFIG
