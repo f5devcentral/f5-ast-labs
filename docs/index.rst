@@ -1,7 +1,7 @@
-F5 Agility Labs Getting Started Doc
-===================================
+F5 Application Study Tool Labs
+==============================
 
-Welcome to the |classbold| for F5 Agility |year|
+Welcome to the |classbold| for F5 Test Drive Labs |year|
 
 .. attention::
    The Agility team is using this repo to document our "read-the-docs" process.

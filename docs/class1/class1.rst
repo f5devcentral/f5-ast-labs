@@ -1,11 +1,13 @@
-Class 1: Getting Started
-========================
+Class 1: Introduction to F5 Application Study Tool
+==================================================
 
-This class has one module and two labs. We're simply doing this to show the
-standard structure of a class/module/lab.
+Welcome! This class will serve as an introduction to the F5 Application Study Tool (AST).
 
-.. note:: It could be simplier to throw all the content in one file but that
-   would miss the point of showing how we curently use RST.
+.. note:: This lab guide is meant to serve as a hands-on exercise for folks wanting to learn more about and become familiar with the F5 AST. The public GitHub repo and Docsite focus primarily on the administrative/configuration side of the F5 AST, and will be covered at a high level.
+   
+   We highly recommend you explore not only this lab, but also the repo and docsite!
+
+Please select **Next** below and head over to the Overview of F5 AST! Or, if you're looking for a particular section, you may select from the following links.
 
 .. toctree::
    :maxdepth: 1

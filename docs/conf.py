@@ -13,10 +13,11 @@ import f5_sphinx_theme
 # ------------
 #
 # REQUIRED: Your class/lab name
-classname = "F5 Agility Template"
+classname = "F5 Application Study Tool Labs"
+astversion = "v0.7"
 
 # OPTIONAL: The URL to the GitHub Repository for this class
-github_repo = "https://github.com/f5devcentral/f5-agility-labs-template"
+github_repo = "https://github.com/tholemu/f5-ast-labs"
 
 #
 # END CONFIG
