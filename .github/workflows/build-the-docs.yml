@@ -8,7 +8,7 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     env:
-      S3_DIR: template
+      S3_DIR: ast
 
     steps:
     - uses: actions/checkout@v4
