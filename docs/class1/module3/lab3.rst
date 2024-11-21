@@ -22,8 +22,35 @@ In this lab, we'll explore the Application Study Tool's BIG-IP Device/Profiles d
     .. image:: images/device_profiles_dashboards.png
         :width: 500
 
-LTM HTTP Profile
-----------------
+LTM - HTTP Profile
+------------------
+
+The **LTM - HTTP Profile** dashboard is where HTTP-specific data can be found on a per-profile basis.
+
+Available Metrics include:
+
+* Profile Overview
+
+  * Profile Settings
+
+* HTTP Request / Response
+
+  * HTTP Request Rate
+
+  * HTTP Response Rate by Status
+
+  * HTTP Requests by Version (last hour)
+
+  * HTTP Requests by Method
+
+  * HTTP Responses by Version
+
+* Virtual Server HTTP Request / Response
+
+  * Virtual Server HTTP Request Rate by Method
+
+  * Virtual Server HTTP Response Rate by Status
+
 
 .. image:: images/ltm_http_profile_dashboard.png
     :width: 800
@@ -31,5 +58,80 @@ LTM HTTP Profile
 LTM - DNS Profile
 -----------------
 
+As you may have guessed, the **LTM - DNS Profile** dashboard is where DNS-specific data can be found, per-profile.
+
+.. note:: One of the first things you'll notice about this dashboard is the presence of configuration instructions. Please take note of these and be sure your ``ast_defaults.yaml`` and ``bigip_receivers.yaml`` files are properly configured. Otherwise, stats will not be collected and displayed.
+
+Available Metrics include:
+
+* Profile Overview
+
+  * Profile Settings
+
+  * DNS Profile Request Rate
+
+  * DNS Profile Response Rate
+
+* DNS Request / Response Detail
+
+  * DNS EDNS Request Rate
+
+  * DNS EDNS Response Rate
+
+  * DNS Request by Type
+
+  * DNS Response by Type
+
+  * DNS Response by Return Type
+
+* DNS Zone NS Detail
+
+  * Queries by Type
+
+  * XFR Notify Rates
+
+  * DNSX Query Rates
+
+  * DNSX Response Rate
+
+* DNS Resolver Cache Hit / Miss Rates
+
+  * Client Cache Hits
+
+  * Client Cache Misses
+
+  * Client Hits Response Time
+
+  * Client Misses Response Time
+
+* DNS Resolver Cache Traffic Rates
+
+  * DNS Profile Bit Rate
+
+  * TCP Bit Rate
+
+  * Packet Rate
+
+* DNS Resolver Cache Message Rates
+
+  * Message Hit Rate
+
+  * Message Miss Rate
+
+  * Message Eviction Rate
+
+  * Message Modification Rate
+
+* DNS Resolver Serer Query Rate
+
+  * Server Query Rate
+
+  * Server Response Rate
+
+  * Server Queries
+
+
 .. image:: images/ltm_dns_profile_dashboard.png
     :width: 800
+
+This concludes :ref:`Introduction to F5 Application Study Tool`! We truly hope you've enjoyed the content and trust you'll check back soon for additional exciting content!

@@ -181,7 +181,7 @@ Let's check the release version of the repo by examining the ``docker-compose.ya
       otel-collector:
          image: ghcr.io/f5devcentral/application-study-tool/otel_custom_collector:v0.7.0
 
-   This particular output reveals v0.7.0 of the OTel Custom Collector. If that version is lower than what's listed on the `f5devcentral / application-study-tool Releases board <https://github.com/f5devcentral/application-study-tool/releases/tag/v0.7.0>`_, perform the following steps. Otherwise, you're ready and free to roll on to :ref:`Exploring the F5 AST Dashboards`.
+   This particular output reveals ``v0.7.0`` of the OTel Custom Collector. If that version is lower than what's listed on the `f5devcentral / application-study-tool Releases board <https://github.com/f5devcentral/application-study-tool/releases/tag/v0.7.0>`_, perform the following steps. Otherwise, you're ready and free to roll on to :ref:`Accessing F5 AST`.
 
 #. Since local changes have been made to files which are actively tracked for changes in the repo, such as ``.env.device-secrets`` and ``config/bigip_receivers.yaml``, we must stash away those changes prior to performing a ``git pull``. Stashing simply sets them aside temporarily. We'll reincorporate them after pulling the latest code from GitHub.
 
@@ -214,6 +214,9 @@ Let's check the release version of the repo by examining the ``docker-compose.ya
       docker container restart application-study-tool_otel-collector_1
 
 That's it! The upgrade process should be seamless and good to go.
+
+
+.. _`Accessing F5 AST`:
 
 Accessing F5 AST
 ----------------
