@@ -9,7 +9,7 @@ As you will soon find out, this tool is designed to deliver value with high velo
 
 .. attention:: We're not trying to get in the way of your productivity, so as you can see, there's not a ton of fluff or complexity in this module -- it consists of two lab exercises.
 
-Please select **Next** below and carry on to **Lab 1 - Accessing and Using the GitHub Repository**
+Please select **Next** below and carry on to :ref:`Accessing and Using the GitHub Repository`
 
 .. toctree::
    :maxdepth: 1

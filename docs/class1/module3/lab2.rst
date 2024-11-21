@@ -396,3 +396,5 @@ Available Metrics include:
 
 .. image:: images/device_gtm_dashboard.png
     :width: 800
+
+Please select **Next** below and continue on to :ref:`Device/Profiles`.

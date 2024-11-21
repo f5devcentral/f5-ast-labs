@@ -1,5 +1,7 @@
-Lab 3 - Dashboards: BIG-IP - Device/Profiles
-============================================
+.. _Device/Profiles:
+
+Section 3 - Dashboards: BIG-IP - Device/Profiles
+================================================
 
 In this lab, we'll explore the Application Study Tool's BIG-IP Device/Profiles dashboards:
 
