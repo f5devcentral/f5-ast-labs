@@ -134,4 +134,12 @@ Available Metrics include:
 .. image:: images/ltm_dns_profile_dashboard.png
     :width: 800
 
-This concludes :ref:`Introduction to F5 Application Study Tool`! We truly hope you've enjoyed the content and trust you'll check back soon for additional exciting content!
+.. attention:: This concludes :ref:`Introduction to F5 Application Study Tool`! We truly hope you've enjoyed the content and trust you'll check back soon to find additional exciting features and functionality!
+
+    Then again, if you're reading this alongside a UDF Course, why leave so soon? There's plenty of stuff to check out in **Grafana** and this is an opportunity to explore!
+    
+    Also, don't forget about `Docker for Beginners <https://docker-curriculum.com/>`_. A Docker lab environment is at your fingertips, might as well check it out.
+
+.. note:: One of the *best* ways to ensure you're in the know as it relates to the **F5 AST** is by having a conversation with *your F5 account team* and voicing your interest, thoughts, and opinions.
+
+    Unsure who's on your account team? No problem. Head over to `Get F5 <https://www.f5.com/products/get-f5>`_  and submit an inquiry mentioning the **F5 Application Study Tool**.
