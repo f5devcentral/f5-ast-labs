@@ -232,11 +232,75 @@ Available Metrics include:
 Device Virtual Server Details
 -----------------------------
 
-
+The **Device Virtual Server Details** dashboard isolates the user to a specific virtual server and provides additional insights such as *HTTP Requests and Responses per Second* and *DNS Latency in milliseconds*.
 
 Available Metrics include:
 
-* 
+* Summary
+
+  * Virtual Server Overview
+
+  * Configuration Changes (last 24 hours)
+
+* Availability
+
+  * Is Virtual Server State Available?
+
+  * Is Virtual Server Enabled?
+
+  * Virtual Server Availability (last 24 hours)
+
+* Configured Objects
+
+  * Virtual Server Pool State
+
+  * Applied iRules
+
+  * Applied Profiles
+
+* CPU Utilization
+
+  * Virtual Server CPU Utilization
+
+  * Virtual Server ASM CPU Utilization
+
+* Traffic
+
+  * Virtual Server Request Rate
+
+  * Virtual Server Traffic
+
+  * Virtual Server Packets Rate
+
+* Connections
+
+  * Virtual Server Concurrent Connections
+
+  * Virtual Server Connection Rate
+
+  * Virtual Server Average Connection Duration
+
+* HTTP
+
+  * HTTP Requests and Responses per Second
+
+  * HTTP Responses per Second
+
+* DNS
+
+  * Applied Profiles
+
+  * DNS Latency in milliseconds
+
+  * DNS Queries and Responses per Second
+
+  * DNS Express Queries and Responses per Second
+
+* SSL
+
+  * SSL Bytes per Second
+
+  * SSL Handshakes and Renegotiations per Second
 
 
 .. image:: images/device_virtual_servers_details_dashboard.png
@@ -286,11 +350,31 @@ Available Metrics include:
 Device iRules
 -------------
 
-
+The **Device iRules** dashboard should come as no surprise to anyone familiar with F5 BIG-IP. iRules are an integral part of powering application delivery, and having operational state data such as *iRule Execution Rate* and *iRule Failure Rate* is critical. You can even dig deeper and learn about *Failures by Event Type*.
 
 Available Metrics include:
 
-* 
+* Overview
+
+  * Top 10 iRules by Approximate Cycles Used (last 24 hours)
+
+  * Top 10 iRules by Cycles per Execution
+
+  * Top 10 iRules by Executions
+
+  * iRule Execution Rate
+
+  * iRule Failure Rate
+
+  * iRule Abort Rate
+
+* Rule Event Detail
+
+  * Executions by Event Type
+
+  * Failures by Event Type
+
+  * Aborts by Event Type
 
 
 .. image:: images/device_irules_dashboard.png
@@ -299,11 +383,15 @@ Available Metrics include:
 Device GTM
 ----------
 
+Last, but certainly not least, the **Device GTM** dashboard provides a view of the DNS and global resiliency metrics across your F5 BIG-IP estate.
 
+.. note:: One of the first things you'll notice about this dashboard is the presence of configuration instructions. Please take note of these and be sure your ``ast_defaults.yaml`` and ``bigip_receivers.yaml`` files are properly configured. Otherwise, stats will not be collected and displayed.
 
 Available Metrics include:
 
-* 
+* GTM Overview
+
+* Requests Rate by Type
 
 
 .. image:: images/device_gtm_dashboard.png
