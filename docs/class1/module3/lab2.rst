@@ -1,7 +1,7 @@
 .. _BIG-IP - Device:
 
-Section 2 - Dashboards: BIG-IP - Device
-=======================================
+BIG-IP - Device Dashboards
+==========================
 
 In this lab, we'll explore the Application Study Tool's BIG-IP Device dashboards:
 
@@ -18,6 +18,15 @@ In this lab, we'll explore the Application Study Tool's BIG-IP Device dashboards
 
     These dashboards provide views into fundamental metrics we have observed have value in real-world scenarios, based upon field experience. We have designed this tool in a way that facilitates and enables users to customize it to meet their unique needs. Grafana provides just that, and we encourage you to add it into your toolbelt.
 
+#. From the **Grafana Dashboards** landing page, select **BIG-IP - Device**
+
+    .. image:: images/device_dashboards_link.png
+        :width: 500
+
+#. You'll be presented with a list of available dashboards:
+
+    .. image:: images/device_dashboards.png
+        :width: 500
 
 Top N
 -----

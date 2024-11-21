@@ -1,7 +1,7 @@
 .. _BIG-IP - Fleet:
 
-Section 1 - Dashboards: BIG-IP - Fleet
-======================================
+BIG-IP - Fleet Dashboards
+=========================
 
 In this lab, we'll explore the Application Study Tool's BIG-IP Fleet dashboards:
 
@@ -14,6 +14,15 @@ In this lab, we'll explore the Application Study Tool's BIG-IP Fleet dashboards:
 
     These dashboards provide views into fundamental metrics we have observed have value in real-world scenarios, based upon field experience. We have designed this tool in a way that facilitates and enables users to customize it to meet their unique needs. Grafana provides just that, and we encourage you to add it into your toolbelt.
 
+#. From the **Grafana Dashboards** landing page, select **BIG-IP - Fleet**
+
+    .. image:: images/fleet_dashboards_link.png
+        :width: 500
+
+#. You'll be presented with a list of available dashboards:
+
+    .. image:: images/fleet_dashboards.png
+        :width: 500
 
 Fleet Inventory
 ---------------

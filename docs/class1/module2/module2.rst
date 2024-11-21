@@ -1,7 +1,7 @@
 .. _Installing and Configuring the F5 AST:
 
-Module 2: Installing, Configuring, and Updating the F5 AST
-==========================================================
+Module 2: Installing, Configuring, Updating, and Accessing the F5 AST
+=====================================================================
 
 Prepare yourself -- the time is now for us to review and delve into the installation and configuration of F5's Application Study Tool!
 

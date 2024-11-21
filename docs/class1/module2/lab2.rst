@@ -241,4 +241,6 @@ Here's where our boots hit the ground and the real adventure begins!
     .. image:: images/grafana_dashboards.png
         :width: 800
 
+In the next module you will learn about all of the available pre-packaged dashboards. The door's open for you to step in and take a look around the F5 Application Study Tool!
+
 Please select **Next** below and continue on to :ref:`Exploring the F5 AST Dashboards`
