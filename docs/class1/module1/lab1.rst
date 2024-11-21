@@ -17,7 +17,7 @@ To an F5 BIG-IP administrator, engineer, or operator, these questions are incred
 
 Given F5 BIG-IP's integral part in the path of delivering applications and data, having insight as to what's happening within the BIG-IP estate and ecosystem is critical. With the prevalence of metrics and datapoints available under the hood of BIG-IP, alongside the flexibility of OpenTelemetry (OTel) and tools such as Prometheus and Grafana, value-added information has never been easier to obtain and deliver.
 
-The F5 Application Study Tool aims to address the needs of your team and broader organization by significantly reducing the complexity and effort required to deliver such solutions at scale. At F5, we've heard, seen, and experienced first-hand these impediments, and are seeing overwhelmingly-positive feedback from customers presently using F5 AST.
+The F5 Application Study Tool aims to address the needs of your team and broader organization by significantly reducing the complexity and effort required to deliver such solutions at scale. At F5, we've heard, seen, and experienced first-hand these impediments, and are receiving overwhelmingly-positive feedback from customers presently using F5 AST.
 
 How Does it Work?
 -----------------

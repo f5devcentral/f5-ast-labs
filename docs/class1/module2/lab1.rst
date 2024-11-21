@@ -1,3 +1,5 @@
+.. _Accessing and Using the GitHub Repository:
+
 Lab 1 - Accessing and Using the GitHub Repository
 =================================================
 

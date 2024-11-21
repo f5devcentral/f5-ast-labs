@@ -1,7 +1,7 @@
 .. _Configuring the F5 AST:
 
-Lab 2 - Configuring the F5 AST
-==============================
+Lab 2 - Configuring, Updating, and Accessing the F5 AST
+=======================================================
 
 Environment Variables
 ---------------------
@@ -181,7 +181,7 @@ Let's check the release version of the repo by examining the ``docker-compose.ya
       otel-collector:
          image: ghcr.io/f5devcentral/application-study-tool/otel_custom_collector:v0.7.0
 
-   This particular output reveals v0.7.0 of the OTel Custom Collector. If that version is lower than what's listed on the `f5devcentral / application-study-tool Releases board <https://github.com/f5devcentral/application-study-tool/releases/tag/v0.7.0>`_, perform the following steps. Otherwise, you're ready and free to roll on to :ref:`Exploring the F5 AST Dashboards`.
+   This particular output reveals ``v0.7.0`` of the OTel Custom Collector. If that version is lower than what's listed on the `f5devcentral / application-study-tool Releases board <https://github.com/f5devcentral/application-study-tool/releases/tag/v0.7.0>`_, perform the following steps. Otherwise, you're ready and free to roll on to :ref:`Accessing F5 AST`.
 
 #. Since local changes have been made to files which are actively tracked for changes in the repo, such as ``.env.device-secrets`` and ``config/bigip_receivers.yaml``, we must stash away those changes prior to performing a ``git pull``. Stashing simply sets them aside temporarily. We'll reincorporate them after pulling the latest code from GitHub.
 
@@ -214,5 +214,36 @@ Let's check the release version of the repo by examining the ``docker-compose.ya
       docker container restart application-study-tool_otel-collector_1
 
 That's it! The upgrade process should be seamless and good to go.
+
+
+.. _`Accessing F5 AST`:
+
+Accessing F5 AST
+----------------
+
+Here's where our boots hit the ground and the real adventure begins!
+
+#. From within the UDF course deployment's **Super Jump Host** System, locate and select **ACCESS**, then **Firefox**.
+
+    .. image:: images/udf_firefox_access.png
+        :width: 800
+
+#. Once the new browser tab has loaded, you will be presented with a nested Firefox browser that's running within the UDF lab. Click into the search/navigation bar and select the **Dashboards - Grafana**
+
+    .. image:: images/udf_grafana_browser_link.png
+        :width: 800
+
+    As you can see, the F5 AST Grafana dashboard is available via the following URL in your lab environment:
+
+    .. code-block:: console
+
+        http://10.1.1.10:3000/dashboards
+
+#. The **Dashboards** landing page presents users with a couple standalone dashboards and a few collections of dashboards, per the image below.
+
+    .. image:: images/grafana_dashboards.png
+        :width: 800
+
+In the next module you will learn about all of the available pre-packaged dashboards. The door's open for you to step in and take a look around the F5 Application Study Tool!
 
 Please select **Next** below and continue on to :ref:`Exploring the F5 AST Dashboards`
