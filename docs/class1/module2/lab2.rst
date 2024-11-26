@@ -116,7 +116,7 @@ F5 AST Configuration Setting Files
     .. code-block:: console
 
         bigip/1:
-            endpoint: https://10.1.1.6
+            endpoint: https://10.1.1.5
 
     Upon further examination of the configuration, the inline documentation makes understanding the settings and options an achievable task.
 
