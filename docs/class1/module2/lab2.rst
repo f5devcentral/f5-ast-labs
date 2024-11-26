@@ -8,6 +8,12 @@ Environment Variables
 
 #. If your previously-opened *web shell* has closed or timed out, navigate to the **App Study Tool** component with the UDF lab, then select **Access** and **Web Shell**.
 
+#. Switch over to the ``ubuntu`` user:
+
+    .. code-block:: console
+
+        su - ubuntu
+
 #. Change over to the ``application-study-tool`` repo's root directory:
 
     .. code-block:: console
@@ -23,7 +29,7 @@ Environment Variables
  
         more .env.device-secrets
 
-    .. note:: The environment and configuration files contain documentation tidbits to aid the setup and tuning process
+.. note:: The environment and configuration files contain documentation tidbits to aid the setup and tuning process
 
 F5 AST Configuration Setting Files
 ----------------------------------
@@ -150,13 +156,19 @@ F5 AST Configuration Helper
 
 Once the ``bigip_receivers.yaml`` file has been updated, you must run the configuration helper script. This processes the changes made and updates the OTel collector's embedded yaml configuration files, as we will soon see.
 
+#. Please ensure you're operating as the ``ubuntu`` user:
+
+    .. code-block:: console
+
+        su - ubuntu
+
 #. The following command must be run from the f5-application-study repo root directory, ``/home/ubuntu/application-study-tool``
 
-   .. code-block:: console
+    .. code-block:: console
 
-      docker run --rm -it -w /app -v ${PWD}:/app --entrypoint /app/src/bin/init_entrypoint.sh python:3.12.6-slim-bookworm --generate-config
+        sudo docker run --rm -it -w /app -v ${PWD}:/app --entrypoint /app/src/bin/init_entrypoint.sh python:3.12.6-slim-bookworm --generate-config
 
-   Output ending with the following two lines indicates the configuration was successfully generated.
+Output ending with the following two lines indicates the configuration was successfully generated.
 
    .. code-block:: console
 
@@ -187,31 +199,31 @@ Let's check the release version of the repo by examining the ``docker-compose.ya
 
    .. code-block:: console
 
-      git stash
+      sudo git stash
 
 #. Pull new code from the GitHub repo:
 
    .. code-block:: console
 
-      git pull origin main
+      sudo git pull origin main
 
 #. Undo the ``git stash`` action, bringing our local changes back where they need to be:
 
    .. code-block:: console
 
-      git stash pop
+      sudo git stash pop
 
 #. Run the F5 AST Configuration Helper:
 
    .. code-block:: console
 
-      docker run --rm -it -w /app -v ${PWD}:/app --entrypoint /app/src/bin/init_entrypoint.sh python:3.12.6-slim-bookworm --generate-config
+      sudo docker run --rm -it -w /app -v ${PWD}:/app --entrypoint /app/src/bin/init_entrypoint.sh python:3.12.6-slim-bookworm --generate-config
 
 #. Restart the OTel Custom Collector container:
 
    .. code-block:: console
 
-      docker container restart application-study-tool_otel-collector_1
+      sudo docker container restart application-study-tool_otel-collector_1
 
 That's it! The upgrade process should be seamless and good to go.
 

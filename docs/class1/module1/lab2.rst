@@ -26,17 +26,23 @@ But first, let's take a few moments to briefly get our feet wet with Docker and 
 
    #. Navigate to the **App Study Tool** component with the UDF lab, then select **Access** and **Web Shell**.
 
+   #. Switch over to the ``ubuntu`` user:
+
+      .. code-block:: console
+
+         su - ubuntu
+
    #. Once the new tab appears and you're on the terminal, view the Docker version by entering the following command:
 
       .. code-block:: console
 
-         docker -v
+         sudo docker -v
 
    #. Curious which containers Docker are running? Perform this command:
 
       .. code-block:: console
 
-         docker ps
+         sudo docker ps
 
       .. note:: *docker ps* instructs Docker to list all **running** containers. Adding the *-a* argument will include containers not currently running.
          
@@ -46,13 +52,13 @@ But first, let's take a few moments to briefly get our feet wet with Docker and 
 
       .. code-block:: console
 
-         docker image ls
+         sudo docker image ls
 
    #. Ever wonder how to inspect Docker container logs? Run the following:
 
       .. code-block:: console
 
-         docker container logs application-study-tool_otel-collector_1
+         sudo docker container logs application-study-tool_otel-collector_1
 
       .. note:: Reflect back upon the output of ``docker ps`` and you will notice a line item in the table with a name of ``application-study-tool_otel-collector_1``. This name can be referenced when interogating containers via the ``docker container <command> <container_name>`` sequence.
 
