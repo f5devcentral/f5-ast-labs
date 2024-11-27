@@ -61,16 +61,12 @@ Here it is, served to you on a nice, bountiful SaaS platter: |application-study-
         # Start the tool
         docker-compose up
 
-    In this lab, the F5 Application Study Tool has already been installed, partially configured, and started.
+    In this lab, the F5 Application Study Tool has already been installed, partially configured, and started on ``http://10.1.1.10:3031``.
 
-    However, there's an F5 BIG-IP in our UDF lab environment which is not yet being monitored by F5 AST and needs to be added to the ``config/bigip_receivers.yaml`` file.
+    If you'd like to perform the installation yourself, please continue on to :ref:`Installing the F5 AST`.
+    
+    If you'd rather skip the installation, :ref:`Configuring the F5 AST` is the place to be. There's an F5 BIG-IP in our UDF lab environment which is not yet being monitored by the pre-installed F5 AST instance and needs to be added to the ``config/bigip_receivers.yaml`` file.
 
     With that said, we should review and familiarize ourselves with the current configuration and get our hands dirty by modifying it and restarting the OTel container using Docker.
 
-    .. attention:: If you are interested in performing the full installation process, you may do so by stopping the currently-running instance of F5 AST and clone the repo into a different directory.
-        
-        From the new directory, you'll be working with a fresh installation. If you're unsure about how to do this, please ask an instructor or lab assistant for help.
-
-        For the sake of this lab and showcasing traffic generation, we pre-staged F5 AST in the event students want to get up and running with accessing the Grafana dashboards right away.
-
-Please select **Next** below and continue on to :ref:`Configuring the F5 AST`
+Please select **Next** below and continue on to :ref:`Installing the F5 AST`
