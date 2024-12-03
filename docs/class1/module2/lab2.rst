@@ -3,6 +3,10 @@
 Lab 2 - Configuring, Updating, and Accessing the F5 AST
 =======================================================
 
+.. attention:: Some platforms may require the ``Shift`` key in conjunction with standard copy/paste key combinations when interacting with the **Web Shell**
+
+   For example, use ``Shift + Ctrl + v`` to paste instead of ``Ctrl + v``
+
 Environment Variables
 ---------------------
 
