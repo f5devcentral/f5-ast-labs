@@ -5,6 +5,17 @@ Lab 2 - Full Installation of the F5 AST
 
 Within this lab, you will undertake a full installation of the F5 Application Study Tool onto an Ubuntu host.
 
+Pre-requisites Installation
+---------------------------
+
+#. If your previously-opened *web shell* has closed or timed out, navigate to the **App Study Tool** component with the UDF lab, then select **Access** and **Web Shell**.
+
+#. Switch over to the ``ubuntu`` user:
+
+    .. code-block:: console
+
+        su - ubuntu
+
 #. Install Git Client (Ubuntu)
 
     .. code-block:: console
@@ -37,26 +48,60 @@ Within this lab, you will undertake a full installation of the F5 Application St
 
             sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 
+F5 Application Study Tool Installation and Setup
+------------------------------------------------
+
 #. Clone the F5 Application Study Tool repo and enter the directory
 
     .. code-block:: console
 
-        git clone https://github.com/f5devcentral/application-study-tool.git
-        cd application-study-tool
+        git clone https://github.com/f5devcentral/application-study-tool.git && cd application-study-tool
 
-#. Create and edit a localized copy of the ``Grafana`` variables file
+#. Create a localized copies of the environment variables and ``Device Secrets`` files.
 
     .. code-block:: console
 
         cp .env-example .env
-
-#. Create and edit a localized copy of the ``Device Secrets`` variables file
-
-    .. code-block:: console
        
+    .. code-block:: console
+
         cp .env.device-secrets-example .env.device-secrets
 
-#. Edit the ``AST Defaults`` configuration file
+#. Inspect the F5 AST environment variables by running the following commands:
+
+    .. code-block:: console
+
+        more .env
+
+    .. code-block:: console
+ 
+        more .env.device-secrets
+
+    .. note:: The environment and configuration files contain documentation tidbits to aid the setup and tuning process
+
+#. Update the ``Device Secrets`` file via ``vim`` (or another editor of your choosing):
+
+    .. code-block:: console
+
+        vim .env.device-secrets
+
+    While in vim, press ``Shift+G`` to take your cursor to the bottom line and type ``dd`` to delete the line for ``BIGIP_PASSWORD_2``. Next, type ``e`` until your cursor reaches the end of the line.
+
+    At the end of the line, press ``i`` to enter insert mode, then ``right-arrow``. Press ``backspace`` til ``A_SECRET_PASSWORD`` has been removed.
+
+    Now, copy the following and paste the following password into the editor:
+
+    .. code-block:: console
+
+        f5Twister!
+
+    To save your changes, press ``escape``, then type ``:wq`` and ``return``. You should see a message similar to the following upon successful save:
+
+    .. code-block:: console
+
+        ".env.device-secrets" 3L, 194B written
+
+#. Edit the ``AST Defaults`` configuration file.
 
     .. code-block:: console
 
@@ -83,30 +128,11 @@ Within this lab, you will undertake a full installation of the F5 Application St
 Environment Variables
 ---------------------
 
-#. If your previously-opened *web shell* has closed or timed out, navigate to the **App Study Tool** component with the UDF lab, then select **Access** and **Web Shell**.
 
-#. Switch over to the ``ubuntu`` user:
 
-    .. code-block:: console
 
-        su - ubuntu
 
-#. Change over to the ``application-study-tool`` repo's root directory:
 
-    .. code-block:: console
-
-        cd /home/ubuntu/application-study-tool/
-
-#. Inspect the F5 AST environment variables by running the following commands:
-
-    .. code-block:: console
-
-        more .env
-    .. code-block:: console
- 
-        more .env.device-secrets
-
-.. note:: The environment and configuration files contain documentation tidbits to aid the setup and tuning process
 
 F5 AST Configuration Setting Files
 ----------------------------------

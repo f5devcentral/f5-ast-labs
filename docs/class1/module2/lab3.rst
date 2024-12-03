@@ -1,7 +1,7 @@
 .. _Configuring the F5 AST:
 
-Lab 3 - Configuring, Updating, and Accessing a Pre-Installed F5 AST
-===================================================================
+Lab 3 - Reviewing, Updating, and Accessing a Pre-Installed F5 AST Instance
+==========================================================================
 
 Environment Variables
 ---------------------
