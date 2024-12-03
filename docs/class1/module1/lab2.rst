@@ -14,7 +14,7 @@ The tech industry has come a long way from the days of a single application host
 
 Containers have revolutionized what it means and entails to deploy and manage software, whether it's a single container or a Kubernetes environment consisting of tens, hundreds, or even thousands of interconnected containers.
 
-.. Note:: You may have heard the term **micro-services** floating around in recent years. Containerization is a foundational key to the success and proliferation of micro-services architectures.
+.. note:: You may have heard the term **micro-services** floating around in recent years. Containerization is a foundational key to the success and proliferation of micro-services architectures.
 
 At F5, our home is in the heart of application delivery and security, which exposes us to nearly every form of application deployment. We aim to not only stay aligned with modern application infrastructure practices, but also help forge the road ahead and be forward-thinking. Because of this, we are continually evaluating how we design, produce, and deploy our own software.
 
@@ -24,43 +24,48 @@ As you will see in the following module, the installation and configuration proc
 
 But first, let's take a few moments to briefly get our feet wet with Docker and examine the UDF lab environment.
 
-   #. Navigate to the **App Study Tool** component with the UDF lab, then select **Access** and **Web Shell**.
+.. attention:: Some platforms may require the ``Shift`` key in conjunction with standard copy/paste key combinations when interacting with the **Web Shell**
 
-   #. Switch over to the ``ubuntu`` user:
+   For example, use ``Shift + Ctrl + v`` to paste instead of ``Ctrl + v``
 
-      .. code-block:: console
 
-         su - ubuntu
+#. Navigate to the **App Study Tool** component with the UDF lab, then select **Access** and **Web Shell**.
 
-   #. Once the new tab appears and you're on the terminal, view the Docker version by entering the following command:
+#. Switch over to the ``ubuntu`` user:
 
-      .. code-block:: console
+   .. code-block:: console
 
-         sudo docker -v
+      su - ubuntu
 
-   #. Curious which containers Docker are running? Perform this command:
+#. Once the new tab appears and you're on the terminal, view the Docker version by entering the following command:
 
-      .. code-block:: console
+   .. code-block:: console
 
-         sudo docker ps
+      sudo docker -v
 
-      .. note:: *docker ps* instructs Docker to list all **running** containers. Adding the *-a* argument will include containers not currently running.
-         
-         This can be helpful as an initial step when troubleshooting container issues, as you can see when each container was created and its status.
+#. Curious which containers Docker are running? Perform this command:
 
-   #. To view all images available for Docker to run as containers, enter the following command:
+   .. code-block:: console
 
-      .. code-block:: console
+      sudo docker ps
 
-         sudo docker image ls
+   .. note:: *docker ps* instructs Docker to list all **running** containers. Adding the *-a* argument will include containers not currently running.
+      
+      This can be helpful as an initial step when troubleshooting container issues, as you can see when each container was created and its status.
 
-   #. Ever wonder how to inspect Docker container logs? Run the following:
+#. To view all images available for Docker to run as containers, enter the following command:
 
-      .. code-block:: console
+   .. code-block:: console
 
-         sudo docker container logs application-study-tool_otel-collector_1
+      sudo docker image ls
 
-      .. note:: Reflect back upon the output of ``docker ps`` and you will notice a line item in the table with a name of ``application-study-tool_otel-collector_1``. This name can be referenced when interogating containers via the ``docker container <command> <container_name>`` sequence.
+#. Ever wonder how to inspect Docker container logs? Run the following:
+
+   .. code-block:: console
+
+      sudo docker container logs application-study-tool_otel-collector_1
+
+   .. note:: Reflect back upon the output of ``docker ps`` and you will notice a line item in the table with a name of ``application-study-tool_otel-collector_1``. This name can be referenced when interogating containers via the ``docker container <command> <container_name>`` sequence.
 
 
 We highly encourage you to learn more about containerization and recommend `Docker for Beginners <https://docker-curriculum.com/>`_, as it is a well-written, comprehensive guide which builds a solid foundation for further growth.
