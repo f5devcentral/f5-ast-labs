@@ -31,12 +31,6 @@ But first, let's take a few moments to briefly get our feet wet with Docker and 
 
 #. Navigate to the **App Study Tool** component with the UDF lab, then select **Access** and **Web Shell**.
 
-#. Switch over to the ``ubuntu`` user:
-
-   .. code-block:: console
-
-      su - ubuntu
-
 #. Once the new tab appears and you're on the terminal, view the Docker version by entering the following command:
 
    .. code-block:: console

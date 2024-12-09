@@ -12,12 +12,6 @@ Environment Variables
 
 #. If your previously-opened *web shell* has closed or timed out, navigate to the **App Study Tool** component with the UDF lab, then select **Access** and **Web Shell**.
 
-#. Switch over to the ``ubuntu`` user:
-
-    .. code-block:: console
-
-        su - ubuntu
-
 #. Change over to the ``application-study-tool`` repo's root directory:
 
     .. code-block:: console
@@ -239,21 +233,46 @@ Accessing F5 AST
 
 Here's where our boots hit the ground and the real adventure begins!
 
-#. From within the UDF course deployment's **Super Jump Host** System, locate and select **ACCESS**, then **Firefox**.
+#. From within the UDF course deployment's **Application Study Tool** System, locate and select **ACCESS**, then **Pre-Built Grafana**.
 
-    .. image:: images/udf_firefox_access.png
+    .. image:: images/udf_prebuild_grafana_access.png
         :width: 800
 
-#. Once the new browser tab has loaded, you will be presented with a nested Firefox browser that's running within the UDF lab. Click into the search/navigation bar and select the **Dashboards - Grafana**
+#. Once the new browser tab has loaded, you will be presented with the pre-built AST Grafana login. Enter the following credentials and select **Log in**.
 
-    .. image:: images/udf_grafana_browser_link.png
-        :width: 800
-
-    As you can see, the F5 AST Grafana dashboard is available via the following URL in your lab environment:
+    Username
 
     .. code-block:: console
 
-        http://10.1.1.10:3000/dashboards
+        admin
+
+    Password
+
+    .. code-block:: console
+
+        admin
+
+    .. image:: images/grafana_login.png
+        :width: 800
+
+    Although you won't see the internal, local URL, the pre-built F5 AST Grafana dashboard is exposed via:
+
+    .. code-block:: console
+
+        http://10.1.1.10:3001/dashboards
+
+#. Upon succesful authentication, you will be presented with an option to change the password. Select **Skip**.
+
+    .. image:: images/grafana_skip_password_change.png
+        :width: 800
+
+#. Next, you'll be presented with the Grafana homepage. From here, select the menu button next to **Home**, then **Dashboards**.
+
+    .. image:: images/grafana_home.png
+        :width: 800
+
+    .. image:: images/grafana_access_dashboards.png
+        :width: 400
 
 #. The **Dashboards** landing page presents users with a couple standalone dashboards and a few collections of dashboards, per the image below.
 
