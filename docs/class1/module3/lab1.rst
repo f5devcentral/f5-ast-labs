@@ -79,8 +79,6 @@ Virtual Servers
 
 The **Virtual Servers** dashboard give a view into *availability* and *connection/data rate* stats.
 
-From here, you can also see *if changes have occurred within the past 24 hours*, which answers one of the very first incident-triage questions... **what changed**?
-
 Available Metrics include:
 
 * Virtual Server Availability
@@ -88,7 +86,6 @@ Available Metrics include:
 * Virtual Server Connection Rate
 * Virtual Server Data Rate
 * Fleet Virtual Server Details
-
 
 .. image:: images/fleet_virtual_servers_dashboard.png
     :width: 800
