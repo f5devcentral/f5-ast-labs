@@ -16,7 +16,7 @@ Environment Variables
 
     .. code-block:: console
 
-        cd /home/ubuntu/application-study-tool/
+        cd /home/ubuntu/pre-built/application-study-tool
 
 #. Inspect the F5 AST environment variables by running the following commands:
 
@@ -45,35 +45,35 @@ F5 AST Configuration Setting Files
         # These configs are applied to each entry in the bigip_receivers file
         # where they don't contain an equivalent / overriding entry.
         bigip_receiver_defaults:
-            # The time to wait between metric collection runs
-            collection_interval: 60s
-            # The username to login to the device with
-            username: admin
-            # The password (not recommended) or a reference to an env variable (recommended, shown)
-            # Below tells the collector to look for an environment variable named BIGIP_PASSWORD_1
-            password: "${env:BIGIP_PASSWORD_1}"
-            # The timeout field can be used to adjust the amount of time the collector will wait for a response
-            # to BigIP iControl Rest requests. Larger boxes with more complex config may require setting this value
-            # higher. Set for individual devices in bigip_receivers.yaml
-            timeout: 10s
-            # The data_types that should be enabled or disabled. DNS and GTM users can enable those modules
-            # by setting the below to true. These will apply to all devices and may be better specified on the
-            # per-reciever settings file below.
-            data_types:
-                f5.dns:
-                enabled: true
-                f5.gtm:
-                enabled: true
-            # The TLS settings to use. Either a CA file must be specified or insecure_skip_verify
-            # set to true (not recommended)
-            tls:
-                insecure_skip_verify: true
-                ca_file: ""
+        # The time to wait between metric collection runs
+        collection_interval: 60s
+        # The username to login to the device with
+        username: admin
+        # The password (not recommended) or a reference to an env variable (recommended, shown)
+        # Below tells the collector to look for an environment variable named BIGIP_PASSWORD_1
+        password: "${env:BIGIP_PASSWORD_1}"
+        # The timeout field can be used to adjust the amount of time the collector will wait for a response
+        # to BigIP iControl Rest requests. Larger boxes with more complex config may require setting this value
+        # higher. Set for individual devices in bigip_receivers.yaml
+        timeout: 10s
+        # The data_types that should be enabled or disabled. DNS and GTM users can enable those modules
+        # by setting the below to true. These will apply to all devices and may be better specified on the
+        # per-reciever settings file below.
+        data_types:
+            f5.dns:
+            enabled: false
+            f5.gtm:
+            enabled: false
+        # The TLS settings to use. Either a CA file must be specified or insecure_skip_verify
+        # set to true (not recommended)
+        tls:
+            insecure_skip_verify: true
+            ca_file: ""
 
-            # Set to true to enable periodic metric export to F5 DataFabric.
-            # Requires adding your Sensor ID and secret token to the container environment (see .env-example).
-            # Contact your F5 sales rep to obtain the ID / secret token.
-            f5_data_export: false
+        # Set to true to enable periodic metric export to F5 DataFabric.
+        # Requires adding your Sensor ID and secret token to the container environment (see .env-example).
+        # Contact your F5 sales rep to obtain the ID / secret token.
+        f5_data_export: false
 
     This file contains configuration parameters for both the F5 AST itself and the devices subject to data collection. As the name implies, default settings for device collection can be set here.
 
@@ -132,9 +132,9 @@ F5 AST Configuration Setting Files
 
         vim config/bigip_receivers.yaml
 
-    While in vim, press ``Shift+G`` to take your cursor to the bottom line. Next, type ``ee``, moving your cursor to the end of the line.
+    While in vim, press ``Shift+G`` to take your cursor to the bottom line. Next, type ``o`` to create a new line and enter insert mode.
 
-    At the end of the line, press ``i`` to enter insert mode, then ``right-arrow``, followed by ``return``, taking you to a new line. Press ``backspace`` til the cursor is in the left-most position.
+    Press ``backspace`` til the cursor is in the left-most position.
 
     Now, copy the following and paste it into the editor:
 
