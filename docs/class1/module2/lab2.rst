@@ -81,7 +81,7 @@ F5 AST Configuration Setting Files
     
     .. note:: Default device settings can be overridden by individual device configurations in the ``config/bigip_receivers.yaml`` file.
 
-    As mentioned in Step 4, we need to add a new BIG-IP instance for data scraping: ``APAC - bigip-01``. 
+    As mentioned in Step 4, we need to add a new BIG-IP instance for data scraping: ``East Region - bigip-01``. 
 
 #. First, inspect the ``config/bigip_receivers.yaml`` file with the following command:
 
@@ -89,10 +89,15 @@ F5 AST Configuration Setting Files
 
         more config/bigip_receivers.yaml
 
-    Here's the configuration for one of the BIG-IPs:
+    Here's the configuration for ``West Region - bigip-01``:
 
     .. code-block:: console
 
+        # Your bigip targets
+        # Values not explicitly configured here inherit values in
+        # the ast_defaults.yaml bigip_receiver_defaults section.
+        # Each entry must have a unique name, starting with bigip/
+        # (e.g. bigip/1, bigip/2)
         bigip/1:
             # Endpoint must be specified for each device
             # Set this to the management IP for the device. This must be
@@ -141,7 +146,7 @@ F5 AST Configuration Setting Files
     .. code-block:: console
 
         bigip/4:
-            endpoint: https://10.1.1.6
+            endpoint: https://10.1.1.7
 
     To save your changes, press ``escape``, then type ``:wq`` and ``return``. You should see a message similar to the following upon successful save:
 
@@ -160,12 +165,12 @@ Once the ``bigip_receivers.yaml`` file has been updated, you must run the config
 
         sudo docker run --rm -it -w /app -v ${PWD}:/app --entrypoint /app/src/bin/init_entrypoint.sh python:3.12.6-slim-bookworm --generate-config
 
-Output ending with the following two lines indicates the configuration was successfully generated.
+    Output ending with the following two lines indicates the configuration was successfully generated.
 
-   .. code-block:: console
+    .. code-block:: console
 
-      2024-11-19 06:28:46,272 - INFO - Successfully wrote data to './services/otel_collector/pipelines.yaml'.
-      2024-11-19 06:28:46,273 - INFO - Successfully wrote data to './services/otel_collector/receivers.yaml'.
+        2024-11-19 06:28:46,272 - INFO - Successfully wrote data to './services/otel_collector/pipelines.yaml'.
+        2024-11-19 06:28:46,273 - INFO - Successfully wrote data to './services/otel_collector/receivers.yaml'.
 
 Updating F5 AST
 ---------------
@@ -174,48 +179,48 @@ Let's check the release version of the repo by examining the ``docker-compose.ya
 
 #. Review the ``docker-compose.yaml`` file:
 
-   .. code-block:: console
+    .. code-block:: console
 
-      more docker-compose.yaml
+        more docker-compose.yaml
 
    Press ``space`` until the entire file contents are revealed. Notice the ``otel-collector`` section and the ``image`` property therein.
 
-   .. code-block:: console
+    .. code-block:: console
 
-      otel-collector:
-         image: ghcr.io/f5devcentral/application-study-tool/otel_custom_collector:v0.7.0
+        otel-collector:
+            image: ghcr.io/f5devcentral/application-study-tool/otel_custom_collector:v0.7.0
 
    This particular output reveals ``v0.7.0`` of the OTel Custom Collector. If that version is lower than what's listed on the `f5devcentral / application-study-tool Releases board <https://github.com/f5devcentral/application-study-tool/releases/tag/v0.7.0>`_, perform the following steps. Otherwise, you're ready and free to roll on to :ref:`Accessing F5 AST`.
 
 #. Since local changes have been made to files which are actively tracked for changes in the repo, such as ``.env.device-secrets`` and ``config/bigip_receivers.yaml``, we must stash away those changes prior to performing a ``git pull``. Stashing simply sets them aside temporarily. We'll reincorporate them after pulling the latest code from GitHub.
 
-   .. code-block:: console
+    .. code-block:: console
 
-      sudo git stash
+        sudo git stash
 
 #. Pull new code from the GitHub repo:
 
-   .. code-block:: console
+    .. code-block:: console
 
-      sudo git pull origin main
+        sudo git pull origin main
 
 #. Undo the ``git stash`` action, bringing our local changes back where they need to be:
 
-   .. code-block:: console
+    .. code-block:: console
 
-      sudo git stash pop
+        sudo git stash pop
 
 #. Run the F5 AST Configuration Helper:
 
-   .. code-block:: console
+    .. code-block:: console
 
-      sudo docker run --rm -it -w /app -v ${PWD}:/app --entrypoint /app/src/bin/init_entrypoint.sh python:3.12.6-slim-bookworm --generate-config
+        sudo docker run --rm -it -w /app -v ${PWD}:/app --entrypoint /app/src/bin/init_entrypoint.sh python:3.12.6-slim-bookworm --generate-config
 
 #. Restart the OTel Custom Collector container:
 
-   .. code-block:: console
+    .. code-block:: console
 
-      sudo docker container restart application-study-tool_otel-collector_1
+        sudo docker container restart application-study-tool_otel-collector_1
 
 That's it! The upgrade process should be seamless and good to go.
 
