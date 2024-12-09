@@ -10,12 +10,6 @@ Pre-requisites Installation
 
 #. If your previously-opened *web shell* has closed or timed out, navigate to the **App Study Tool** component with the UDF lab, then select **Access** and **Web Shell**.
 
-#. Switch over to the ``ubuntu`` user:
-
-    .. code-block:: console
-
-        su - ubuntu
-
 #. Install Git Client (Ubuntu)
 
     .. code-block:: console
