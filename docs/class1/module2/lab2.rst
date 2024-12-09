@@ -81,7 +81,7 @@ F5 AST Configuration Setting Files
     
     .. note:: Default device settings can be overridden by individual device configurations in the ``config/bigip_receivers.yaml`` file.
 
-    As mentioned in Step 4, we need to add a new BIG-IP instance for data scraping: ``East Region - bigip-01``. 
+    As mentioned in Step 4, we need to add a new BIG-IP instance for data scraping: ``West Region - bigip-01``. 
 
 #. First, inspect the ``config/bigip_receivers.yaml`` file with the following command:
 
@@ -89,7 +89,7 @@ F5 AST Configuration Setting Files
 
         more config/bigip_receivers.yaml
 
-    Here's the configuration for ``West Region - bigip-01``:
+    Here's the configuration for ``Central Region - bigip-01``:
 
     .. code-block:: console
 
