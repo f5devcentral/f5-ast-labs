@@ -154,12 +154,6 @@ F5 AST Configuration Helper
 
 Once the ``bigip_receivers.yaml`` file has been updated, you must run the configuration helper script. This processes the changes made and updates the OTel collector's embedded yaml configuration files, as we will soon see.
 
-#. Please ensure you're operating as the ``ubuntu`` user:
-
-    .. code-block:: console
-
-        su - ubuntu
-
 #. The following command must be run from the f5-application-study repo root directory, ``/home/ubuntu/application-study-tool``
 
     .. code-block:: console
@@ -259,7 +253,7 @@ Here's where our boots hit the ground and the real adventure begins!
 
     .. code-block:: console
 
-        http://10.1.1.10:3001/dashboards
+        http://10.1.1.11:3001/dashboards
 
 #. Upon succesful authentication, you will be presented with an option to change the password. Select **Skip**.
 
