@@ -12,17 +12,11 @@ Environment Variables
 
 #. If your previously-opened *web shell* has closed or timed out, navigate to the **App Study Tool** component with the UDF lab, then select **Access** and **Web Shell**.
 
-#. Switch over to the ``ubuntu`` user:
-
-    .. code-block:: console
-
-        su - ubuntu
-
 #. Change over to the ``application-study-tool`` repo's root directory:
 
     .. code-block:: console
 
-        cd /home/ubuntu/application-study-tool/
+        cd /home/ubuntu/pre-built/application-study-tool
 
 #. Inspect the F5 AST environment variables by running the following commands:
 
@@ -51,35 +45,35 @@ F5 AST Configuration Setting Files
         # These configs are applied to each entry in the bigip_receivers file
         # where they don't contain an equivalent / overriding entry.
         bigip_receiver_defaults:
-            # The time to wait between metric collection runs
-            collection_interval: 60s
-            # The username to login to the device with
-            username: admin
-            # The password (not recommended) or a reference to an env variable (recommended, shown)
-            # Below tells the collector to look for an environment variable named BIGIP_PASSWORD_1
-            password: "${env:BIGIP_PASSWORD_1}"
-            # The timeout field can be used to adjust the amount of time the collector will wait for a response
-            # to BigIP iControl Rest requests. Larger boxes with more complex config may require setting this value
-            # higher. Set for individual devices in bigip_receivers.yaml
-            timeout: 10s
-            # The data_types that should be enabled or disabled. DNS and GTM users can enable those modules
-            # by setting the below to true. These will apply to all devices and may be better specified on the
-            # per-reciever settings file below.
-            data_types:
-                f5.dns:
-                enabled: true
-                f5.gtm:
-                enabled: true
-            # The TLS settings to use. Either a CA file must be specified or insecure_skip_verify
-            # set to true (not recommended)
-            tls:
-                insecure_skip_verify: true
-                ca_file: ""
+        # The time to wait between metric collection runs
+        collection_interval: 60s
+        # The username to login to the device with
+        username: admin
+        # The password (not recommended) or a reference to an env variable (recommended, shown)
+        # Below tells the collector to look for an environment variable named BIGIP_PASSWORD_1
+        password: "${env:BIGIP_PASSWORD_1}"
+        # The timeout field can be used to adjust the amount of time the collector will wait for a response
+        # to BigIP iControl Rest requests. Larger boxes with more complex config may require setting this value
+        # higher. Set for individual devices in bigip_receivers.yaml
+        timeout: 10s
+        # The data_types that should be enabled or disabled. DNS and GTM users can enable those modules
+        # by setting the below to true. These will apply to all devices and may be better specified on the
+        # per-reciever settings file below.
+        data_types:
+            f5.dns:
+            enabled: false
+            f5.gtm:
+            enabled: false
+        # The TLS settings to use. Either a CA file must be specified or insecure_skip_verify
+        # set to true (not recommended)
+        tls:
+            insecure_skip_verify: true
+            ca_file: ""
 
-            # Set to true to enable periodic metric export to F5 DataFabric.
-            # Requires adding your Sensor ID and secret token to the container environment (see .env-example).
-            # Contact your F5 sales rep to obtain the ID / secret token.
-            f5_data_export: false
+        # Set to true to enable periodic metric export to F5 DataFabric.
+        # Requires adding your Sensor ID and secret token to the container environment (see .env-example).
+        # Contact your F5 sales rep to obtain the ID / secret token.
+        f5_data_export: false
 
     This file contains configuration parameters for both the F5 AST itself and the devices subject to data collection. As the name implies, default settings for device collection can be set here.
 
@@ -138,9 +132,9 @@ F5 AST Configuration Setting Files
 
         vim config/bigip_receivers.yaml
 
-    While in vim, press ``Shift+G`` to take your cursor to the bottom line. Next, type ``ee``, moving your cursor to the end of the line.
+    While in vim, press ``Shift+G`` to take your cursor to the bottom line. Next, type ``o`` to create a new line and enter insert mode.
 
-    At the end of the line, press ``i`` to enter insert mode, then ``right-arrow``, followed by ``return``, taking you to a new line. Press ``backspace`` til the cursor is in the left-most position.
+    Press ``backspace`` til the cursor is in the left-most position.
 
     Now, copy the following and paste it into the editor:
 
@@ -159,12 +153,6 @@ F5 AST Configuration Helper
 ---------------------------
 
 Once the ``bigip_receivers.yaml`` file has been updated, you must run the configuration helper script. This processes the changes made and updates the OTel collector's embedded yaml configuration files, as we will soon see.
-
-#. Please ensure you're operating as the ``ubuntu`` user:
-
-    .. code-block:: console
-
-        su - ubuntu
 
 #. The following command must be run from the f5-application-study repo root directory, ``/home/ubuntu/application-study-tool``
 
@@ -239,21 +227,46 @@ Accessing F5 AST
 
 Here's where our boots hit the ground and the real adventure begins!
 
-#. From within the UDF course deployment's **Super Jump Host** System, locate and select **ACCESS**, then **Firefox**.
+#. From within the UDF course deployment's **Application Study Tool** System, locate and select **ACCESS**, then **Pre-Built Grafana**.
 
-    .. image:: images/udf_firefox_access.png
+    .. image:: images/udf_prebuild_grafana_access.png
         :width: 800
 
-#. Once the new browser tab has loaded, you will be presented with a nested Firefox browser that's running within the UDF lab. Click into the search/navigation bar and select the **Dashboards - Grafana**
+#. Once the new browser tab has loaded, you will be presented with the pre-built AST Grafana login. Enter the following credentials and select **Log in**.
 
-    .. image:: images/udf_grafana_browser_link.png
-        :width: 800
-
-    As you can see, the F5 AST Grafana dashboard is available via the following URL in your lab environment:
+    Username
 
     .. code-block:: console
 
-        http://10.1.1.10:3000/dashboards
+        admin
+
+    Password
+
+    .. code-block:: console
+
+        admin
+
+    .. image:: images/grafana_login.png
+        :width: 800
+
+    Although you won't see the internal, local URL, the pre-built F5 AST Grafana dashboard is exposed via:
+
+    .. code-block:: console
+
+        http://10.1.1.11:3001/dashboards
+
+#. Upon succesful authentication, you will be presented with an option to change the password. Select **Skip**.
+
+    .. image:: images/grafana_skip_password_change.png
+        :width: 800
+
+#. Next, you'll be presented with the Grafana homepage. From here, select the menu button next to **Home**, then **Dashboards**.
+
+    .. image:: images/grafana_home.png
+        :width: 800
+
+    .. image:: images/grafana_access_dashboards.png
+        :width: 400
 
 #. The **Dashboards** landing page presents users with a couple standalone dashboards and a few collections of dashboards, per the image below.
 
