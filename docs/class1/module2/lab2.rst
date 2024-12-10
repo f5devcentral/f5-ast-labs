@@ -10,7 +10,7 @@ Lab 2 - Configuring, Updating, and Accessing the F5 AST
 Environment Variables
 ---------------------
 
-#. If your previously-opened *web shell* has closed or timed out, navigate to the **App Study Tool** component with the UDF lab, then select **Access** and **Web Shell**.
+#. If your previously-opened *web shell* has closed or timed out, navigate to the **Application Study Tool** component with the UDF lab, then select **Access** and **Web Shell**.
 
 #. Change over to the ``application-study-tool`` repo's root directory:
 
@@ -77,11 +77,11 @@ F5 AST Configuration Setting Files
 
     This file contains configuration parameters for both the F5 AST itself and the devices subject to data collection. As the name implies, default settings for device collection can be set here.
 
-    Take a look at the value for ``password``. It's referencing an environment variable -- one which has been defined in the ``.env.device-secrets`` we reviewed in Step 7.
+    Take a look at the value for ``password``. It's referencing an environment variable -- one which has been defined in the ``.env.device-secrets`` we reviewed in the previous step.
     
     .. note:: Default device settings can be overridden by individual device configurations in the ``config/bigip_receivers.yaml`` file.
 
-    As mentioned in Step 4, we need to add a new BIG-IP instance for data scraping: ``West Region - bigip-01``. 
+    As mentioned in Step 4 of :ref:`Accessing and Using the GitHub Repository`, we need to add a new BIG-IP instance for data scraping: ``West Region - bigip-01``. 
 
 #. First, inspect the ``config/bigip_receivers.yaml`` file with the following command:
 
@@ -159,7 +159,7 @@ F5 AST Configuration Helper
 
 Once the ``bigip_receivers.yaml`` file has been updated, you must run the configuration helper script. This processes the changes made and updates the OTel collector's embedded yaml configuration files, as we will soon see.
 
-#. The following command must be run from the f5-application-study repo root directory, ``/home/ubuntu/application-study-tool``
+#. The following command must be run from the f5-application-study repo root directory, ``/home/ubuntu/pre-built/application-study-tool``
 
     .. code-block:: console
 
