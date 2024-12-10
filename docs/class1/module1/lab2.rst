@@ -29,7 +29,7 @@ But first, let's take a few moments to briefly get our feet wet with Docker and 
    For example, use ``Shift + Ctrl + v`` to paste instead of ``Ctrl + v``
 
 
-#. Navigate to the **App Study Tool** component with the UDF lab, then select **Access** and **Web Shell**.
+#. Navigate to the **Application Study Tool** component with the UDF lab, then select **Access** and **Web Shell**.
 
 #. Once the new tab appears and you're on the terminal, view the Docker version by entering the following command:
 
