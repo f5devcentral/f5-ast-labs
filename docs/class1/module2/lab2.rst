@@ -260,11 +260,6 @@ Here's where our boots hit the ground and the real adventure begins!
 
         http://10.1.1.11:3001/dashboards
 
-#. Upon succesful authentication, you will be presented with an option to change the password. Select **Skip**.
-
-    .. image:: images/grafana_skip_password_change.png
-        :width: 800
-
 #. Next, you'll be presented with the Grafana homepage. From here, select the menu button next to **Home**, then **Dashboards**.
 
     .. image:: images/grafana_home.png
