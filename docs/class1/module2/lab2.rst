@@ -243,13 +243,13 @@ Here's where our boots hit the ground and the real adventure begins!
 
     .. code-block:: console
 
-        admin
+        user
 
     Password
 
     .. code-block:: console
 
-        admin
+        user
 
     .. image:: images/grafana_login.png
         :width: 800
