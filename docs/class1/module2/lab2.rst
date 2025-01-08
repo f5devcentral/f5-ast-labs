@@ -145,7 +145,7 @@ F5 AST Configuration Setting Files
 
     .. code-block:: console
 
-        bigip/4:
+        bigip/3:
             endpoint: https://10.1.1.7
 
     To save your changes, press ``escape``, then type ``:wq`` and ``return``. You should see a message similar to the following upon successful save:

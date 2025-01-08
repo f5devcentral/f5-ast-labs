@@ -20,3 +20,4 @@ Welcome to the |classbold| for F5 Test Drive Labs |year|
    :glob:
 
    class*/class*
+
