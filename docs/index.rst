@@ -4,7 +4,7 @@ F5 Application Study Tool Labs
 Welcome to the |classbold| for F5 Test Drive Labs |year|
 
 .. attention::
-   The Agility team is using this repo to document our "read-the-docs" process.
+   F5 solutions engineer and architecture teams use this repo to document our "read-the-docs" process.
 
 |repoinfo|
 
