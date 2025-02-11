@@ -61,7 +61,7 @@ Here it is, served to you on a nice, bountiful SaaS platter: |application-study-
         # Start the tool
         docker-compose up
 
-    In this lab, the F5 Application Study Tool has already been installed, partially configured, and started on ``http://10.1.1.10:3031``.
+    In this lab, the F5 Application Study Tool has already been installed, partially configured, and started on ``http://10.1.1.11:3001``.
 
     If you'd like to perform the installation yourself, please continue on to :ref:`Installing the F5 AST`.
     

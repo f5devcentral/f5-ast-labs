@@ -3,12 +3,22 @@
 Lab 2 - Full Installation of the F5 AST
 =======================================
 
-Within this lab, you will undertake a full installation of the F5 Application Study Tool onto an Ubuntu host.
+Within this lab, you will undertake the task of performing a full installation of the F5 Application Study Tool onto an Ubuntu host.
+
+.. attention:: Some platforms may require the ``Shift`` key in conjunction with standard copy/paste key combinations when interacting with the **Web Shell**
+
+   For example, use ``Shift + Ctrl + v`` to paste instead of ``Ctrl + v``
 
 Pre-requisites Installation
 ---------------------------
 
-#. If your previously-opened *web shell* has closed or timed out, navigate to the **App Study Tool** component with the UDF lab, then select **Access** and **Web Shell**.
+#. Navigate to the **App Services & Traffic Generation** component with the UDF lab, then select **Access** and **Web Shell**.
+
+#. Switch to the `ubuntu` user
+
+    .. code-block:: console
+
+        su - ubuntu
 
 #. Install Git Client (Ubuntu)
 
@@ -45,13 +55,19 @@ Pre-requisites Installation
 F5 Application Study Tool Installation and Setup
 ------------------------------------------------
 
+#. Ensure you're in the `ubuntu` user home directory
+
+    .. code-block:: console
+
+        cd && pwd
+
 #. Clone the F5 Application Study Tool repo and enter the directory
 
     .. code-block:: console
 
         git clone https://github.com/f5devcentral/application-study-tool.git && cd application-study-tool
 
-#. Create a localized copies of the environment variables and ``Device Secrets`` files.
+#. Create localized copies of the environment variables and ``Device Secrets`` files.
 
     .. code-block:: console
 
@@ -81,13 +97,21 @@ F5 Application Study Tool Installation and Setup
 
     While in vim, press ``Shift+G`` to take your cursor to the bottom line and type ``dd`` to delete the line for ``BIGIP_PASSWORD_2``. Next, type ``e`` until your cursor reaches the end of the line.
 
-    At the end of the line, press ``i`` to enter insert mode, then ``right-arrow``. Press ``backspace`` til ``A_SECRET_PASSWORD`` has been removed.
+    At the end of the line, press ``i`` to enter insert mode, then ``right-arrow``. Press ``backspace`` until ``A_SECRET_PASSWORD`` has been removed.
 
-    Now, copy the following and paste the following password into the editor:
+    Now, copy and paste the following password into the editor:
 
     .. code-block:: console
 
         f5Twister!
+
+    The contents of the file should now look like this:
+
+    .. code-block:: console
+
+        # Names here are arbitrary, but must match values in big-ips.json.
+        # Passwords can be referenced by many devices (you do not need a unique variable for each device).
+        BIGIP_PASSWORD_1=f5Twister!
 
     To save your changes, press ``escape``, then type ``:wq`` and ``return``. You should see a message similar to the following upon successful save:
 
@@ -95,43 +119,7 @@ F5 Application Study Tool Installation and Setup
 
         ".env.device-secrets" 3L, 194B written
 
-#. Edit the ``AST Defaults`` configuration file.
-
-    .. code-block:: console
-
-        vi ./config/ast_defaults.yaml
-
-#. Edit the ``BIG-IP Receivers`` configuration file
-
-    .. code-block:: console
-
-        vi ./config/bigip_receivers.yaml
-
-#.  Run the Configuration Generator
-
-    .. code-block:: console
-
-        docker run --rm -it -w /app -v ${PWD}:/app --entrypoint /app/src/bin/init_entrypoint.sh python:3.12.6-slim-bookworm --generate-config
-
-#.  Start the F5 Application Study Tool
-
-    .. code-block:: console
-
-        docker-compose up
-
-Environment Variables
----------------------
-
-
-
-
-
-
-
-F5 AST Configuration Setting Files
-----------------------------------
-
-#. Browse the F5 AST default configuration by running the following command:
+#. Examine the F5 AST default configuration by running the following command:
 
     .. code-block:: console
 
@@ -144,185 +132,217 @@ F5 AST Configuration Setting Files
         # These configs are applied to each entry in the bigip_receivers file
         # where they don't contain an equivalent / overriding entry.
         bigip_receiver_defaults:
-            # The time to wait between metric collection runs
-            collection_interval: 60s
-            # The username to login to the device with
-            username: admin
-            # The password (not recommended) or a reference to an env variable (recommended, shown)
-            # Below tells the collector to look for an environment variable named BIGIP_PASSWORD_1
-            password: "${env:BIGIP_PASSWORD_1}"
-            # The timeout field can be used to adjust the amount of time the collector will wait for a response
-            # to BigIP iControl Rest requests. Larger boxes with more complex config may require setting this value
-            # higher. Set for individual devices in bigip_receivers.yaml
-            timeout: 10s
-            # The data_types that should be enabled or disabled. DNS and GTM users can enable those modules
-            # by setting the below to true. These will apply to all devices and may be better specified on the
-            # per-reciever settings file below.
-            data_types:
-                f5.dns:
-                enabled: true
-                f5.gtm:
-                enabled: true
-            # The TLS settings to use. Either a CA file must be specified or insecure_skip_verify
-            # set to true (not recommended)
-            tls:
-                insecure_skip_verify: true
-                ca_file: ""
+          # The time to wait between metric collection runs
+          collection_interval: 60s
+          # The username to login to the device with
+          username: admin
+          # The password (not recommended) or a reference to an env variable (recommended, shown)
+          # Below tells the collector to look for an environment variable named BIGIP_PASSWORD_1
+          password: "${env:BIGIP_PASSWORD_1}"
+          # The timeout field can be used to adjust the maximum amount of time the collector will wait for a response
+          # to BigIP iControl Rest requests. Larger boxes with more complex config may require setting this value
+          # higher.
+          # This value should be less than or equal to the collection_interval. Any requests that haven't completed
+          # before this timer expires (starting at the beginning of the collection interval) will be cancelled.
+          # You can set this for individual devices in bigip_receivers.yaml.
+          timeout: 60s
+          # The data_types that should be enabled or disabled. Default-disabled module users can enable those modules
+          # by setting the below to true. These will apply to all devices and may be better specified on the
+          # per-reciever settings file.
+          data_types:
+            f5.apm:
+              enabled: false
+            f5.cgnat:
+              enabled: false
+            f5.dns:
+              enabled: false
+            f5.dos:
+              enabled: false
+            f5.firewall:
+              enabled: false
+            f5.gtm:
+              enabled: false
+          # The TLS settings to use. Either a CA file must be specified or insecure_skip_verify
+          # set to true (not recommended)
+          tls:
+            insecure_skip_verify: false
+            ca_file: ""
 
-            # Set to true to enable periodic metric export to F5 DataFabric.
-            # Requires adding your Sensor ID and secret token to the container environment (see .env-example).
-            # Contact your F5 sales rep to obtain the ID / secret token.
-            f5_data_export: false
+        # Set to true to enable periodic metric export to F5 DataFabric.
+        # Requires adding your Sensor ID and secret token to the container environment (see .env-example).
+        # Contact your F5 sales rep to obtain the ID / secret token.
+        f5_data_export: false
 
     This file contains configuration parameters for both the F5 AST itself and the devices subject to data collection. As the name implies, default settings for device collection can be set here.
 
-    Take a look at the value for ``password``. It's referencing an environment variable -- one which has been defined in the ``.env.device-secrets`` we reviewed in Step 7.
+    Take a look at the value for ``password``. It's referencing an environment variable -- one which has been defined in the ``.env.device-secrets`` we reviewed in Step 5.
     
     .. note:: Default device settings can be overridden by individual device configurations in the ``config/bigip_receivers.yaml`` file.
 
-    As mentioned in Step 4, we need to add a new BIG-IP instance for data scraping: ``APAC - bigip-01``. 
-
-#. First, inspect the ``config/bigip_receivers.yaml`` file with the following command:
+#. Edit the ``AST Defaults`` configuration file.
 
     .. code-block:: console
 
-        more config/bigip_receivers.yaml
+        sudo vim config/ast_defaults.yaml
 
-    Here's the configuration for one of the BIG-IPs:
+    The one property we're interested in changing is **insecure_skip_verify**, nested within the **tls** section. Setting this value to **true** will allow self-signed BIG-IP device certificates to be ignored and allowed.
 
-    .. code-block:: console
-
-        bigip/1:
-            # Endpoint must be specified for each device
-            # Set this to the management IP for the device. This must be
-            # reachable from the Application Study Tool host.
-            endpoint: https://10.1.1.5
-            # Uncommenting any of the following lines will override the defaults in
-            # ast_defaults.yaml bigip_receiver_defaults section.
-            # username: SOME_OVERRIDE_ACCOUNT_NAME
-            # password: "${SOME_OTHER_ENV_VAR_WITH_ANOTHER_PASSWORD}"
-            # collection_interval: 30s
-            # timeout: 20s
-            # data_types:
-            #   f5.dns:
-            #     enabled: true
-            #   f5.gtm:
-            #     enabled: true
-            # tls:
-            #   insecure_skip_verify: true
-            #   ca_file:``
-
-    Notice how there are effectively only two lines of configuration for this BIG-IP, as its authentication settings are inherited from the ``ast_defaults.yaml`` file.
-
-    In essence, that configuration boils down to this:
-
-    .. code-block:: console
-
-        bigip/1:
-            endpoint: https://10.1.1.5
-
-    Upon further examination of the configuration, the inline documentation makes understanding the settings and options an achievable task.
-
-    Now that we've come familiar with the configuration settings, it's time to add a new BIG-IP section to the yaml file.
-
-#. Open ``bigip_receivers.yaml`` for editing using ``vim`` (or another editor of your choosing):
-
-    .. code-block:: console
-
-        vim config/bigip_receivers.yaml
-
-    While in vim, press ``Shift+G`` to take your cursor to the bottom line. Next, type ``ee``, moving your cursor to the end of the line.
-
-    At the end of the line, press ``i`` to enter insert mode, then ``right-arrow``, followed by ``return``, taking you to a new line. Press ``backspace`` til the cursor is in the left-most position.
-
-    Now, copy the following and paste it into the editor:
-
-    .. code-block:: console
-
-        bigip/4:
-            endpoint: https://10.1.1.6
+    Using the arrow keys, navigate to the end of the **insecure_skip_verify** line, press ``i`` to enter insert mode, then ``right-arrow``. Press ``backspace`` until ``false`` has been removed and type the word ``true``.
 
     To save your changes, press ``escape``, then type ``:wq`` and ``return``. You should see a message similar to the following upon successful save:
 
     .. code-block:: console
 
-        "config/bigip_receivers.yaml" 82L, 2714B written
+        "config/ast_defaults.yaml" 61L, 2903B written
 
-F5 AST Configuration Helper
----------------------------
-
-Once the ``bigip_receivers.yaml`` file has been updated, you must run the configuration helper script. This processes the changes made and updates the OTel collector's embedded yaml configuration files, as we will soon see.
-
-#. Please ensure you're operating as the ``ubuntu`` user:
+#. Edit the ``BIG-IP Receivers`` configuration file
 
     .. code-block:: console
 
-        su - ubuntu
+        sudo vim config/bigip_receivers.yaml
 
-#. The following command must be run from the f5-application-study repo root directory, ``/home/ubuntu/application-study-tool``
+    For the sake of simplicity, we're going to remove all contents of the file, then paste in the new configuration.
+
+    First, we need to **set paste** within vim by typing ``:set paste`` and pressing ``return``. It will appear as though nothing has occurred. This is expected behavior.
+
+    To remove the existing configuration, type ``:%d`` and press ``return``. This will delete all lines.
+
+    Next, ``i`` to enter insert mode and copy/paste the following into the editor:
+
+    .. code-block:: console
+
+        # Your bigip targets
+        # Values not explicitly configured here inherit values in
+        # the ast_defaults.yaml bigip_receiver_defaults section.
+        # Each entry must have a unique name, starting with bigip/
+        # (e.g. bigip/1, bigip/2)
+        bigip/1:
+          endpoint: https://10.1.1.5
+          data_types:
+            f5.dns:
+              enabled: true
+            f5.gtm:
+              enabled: true
+          # tls:
+          #   insecure_skip_verify: true
+          #   ca_file:
+        bigip/2:
+          endpoint: https://10.1.1.6
+        bigip/3:
+          endpoint: https://10.1.1.7
+
+    To save your changes, press ``escape``, then type ``:wq`` and ``return``. You should see a message similar to the following upon successful save:
+
+    .. code-block:: console
+
+        "config/bigip_receivers.yaml" 19L, 496B written
+
+#.  Run the Configuration Generator
+
+    The Configuration Generator will collect the contents of the files we previously viewed/edited and prepare them for the AST collector container.
 
     .. code-block:: console
 
         sudo docker run --rm -it -w /app -v ${PWD}:/app --entrypoint /app/src/bin/init_entrypoint.sh python:3.12.6-slim-bookworm --generate-config
 
-Output ending with the following two lines indicates the configuration was successfully generated.
+    You should see a slew of output resembling the following:
 
-   .. code-block:: console
+    .. code-block:: console
 
-      2024-11-19 06:28:46,272 - INFO - Successfully wrote data to './services/otel_collector/pipelines.yaml'.
-      2024-11-19 06:28:46,273 - INFO - Successfully wrote data to './services/otel_collector/receivers.yaml'.
+        Collecting PyYAML==6.0.2
+        Downloading PyYAML-6.0.2-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (2.1 kB)
+        Downloading PyYAML-6.0.2-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (767 kB)
+        ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 767.5/767.5 kB 9.2 MB/s eta 0:00:00
+        Installing collected packages: PyYAML
+        Successfully installed PyYAML-6.0.2
+        WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable.It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
 
-Updating F5 AST
----------------
+        [notice] A new release of pip is available: 24.2 -> 25.0
+        [notice] To update, run: pip install --upgrade pip
+        2025-02-07 20:19:12,657 - INFO - Generating configs from  ./config/ast_defaults.yaml and ./config/bigip_receivers.yaml...
+        2025-02-07 20:19:12,657 - INFO - Loading AST Default Settings in ./config/ast_defaults.yaml...
+        2025-02-07 20:19:12,666 - INFO - Successfully loaded './config/ast_defaults.yaml'.
+        2025-02-07 20:19:12,666 - INFO - Loading Per-Receiver (BigIP) Settings in ./config/bigip_receivers.yaml...
+        2025-02-07 20:19:12,669 - INFO - Successfully loaded './config/bigip_receivers.yaml'.
+        2025-02-07 20:19:12,669 - INFO - Generating receiver configs...
+        2025-02-07 20:19:12,669 - INFO - Generating pipeline configs...
+        2025-02-07 20:19:12,669 - WARNING - The f5_data_export=true and f5_pipeline_default fields are required to export metrics periodically to F5. Contact your F5 Sales Rep to provision a Sensor ID and Access Token.
+        2025-02-07 20:19:12,670 - INFO - Built the following pipeline file:
 
-Let's check the release version of the repo by examining the ``docker-compose.yaml`` file, which resides in the repo root directory. The version running in this lab's corresponding UDF environment should, but may not always be up-to-date.
+        metrics/local:
+        exporters:
+        - otlphttp/metrics-local
+        - debug/bigip
+        processors:
+        - batch/local
+        receivers:
+        - bigip/1
+        - bigip/2
+        - bigip/3
 
-#. Review the ``docker-compose.yaml`` file:
+        2025-02-07 20:19:12,674 - INFO - Built the following receiver file:
 
-   .. code-block:: console
+        bigip/1:
+          collection_interval: 60s
+          data_types:
+            enabled: true
+            f5.dns: null
+            f5.gtm: null
+          endpoint: https://10.1.1.5
+          password: ${env:BIGIP_PASSWORD_1}
+          timeout: 10s
+          tls:
+            ca_file: ''
+            insecure_skip_verify: true
+          username: admin
+        bigip/2:
+          collection_interval: 60s
+          data_types:
+            f5.dns:
+              enabled: false
+            f5.gtm:
+              enabled: false
+          endpoint: https://10.1.1.6
+          password: ${env:BIGIP_PASSWORD_1}
+          timeout: 10s
+          tls:
+            ca_file: ''
+            insecure_skip_verify: true
+          username: admin
+        bigip/3:
+          collection_interval: 60s
+          data_types:
+            f5.dns:
+              enabled: false
+            f5.gtm:
+              enabled: false
+          endpoint: https://10.1.1.7
+          password: ${env:BIGIP_PASSWORD_1}
+          timeout: 10s
+          tls:
+            ca_file: ''
+            insecure_skip_verify: true
+          username: admin
 
-      more docker-compose.yaml
+        2025-02-07 20:19:12,675 - INFO - Successfully wrote data to './services/otel_collector/pipelines.yaml'.
+        2025-02-07 20:19:12,679 - INFO - Successfully wrote data to './services/otel_collector/receivers.yaml'.
 
-   Press ``space`` until the entire file contents are revealed. Notice the ``otel-collector`` section and the ``image`` property therein.
+    The last two lines indicate success. If you're in an instructor-led class and do not see the success messages, please alert the lab assistants and request help.
 
-   .. code-block:: console
+#.  Start the F5 Application Study Tool
 
-      otel-collector:
-         image: ghcr.io/f5devcentral/application-study-tool/otel_custom_collector:v0.7.0
+    .. code-block:: console
 
-   This particular output reveals ``v0.7.0`` of the OTel Custom Collector. If that version is lower than what's listed on the `f5devcentral / application-study-tool Releases board <https://github.com/f5devcentral/application-study-tool/releases/tag/v0.7.0>`_, perform the following steps. Otherwise, you're ready and free to roll on to :ref:`Accessing F5 AST`.
+        sudo docker-compose up -d
 
-#. Since local changes have been made to files which are actively tracked for changes in the repo, such as ``.env.device-secrets`` and ``config/bigip_receivers.yaml``, we must stash away those changes prior to performing a ``git pull``. Stashing simply sets them aside temporarily. We'll reincorporate them after pulling the latest code from GitHub.
+    You should see output similar to the following:
 
-   .. code-block:: console
+    .. code-block:: console
 
-      sudo git stash
-
-#. Pull new code from the GitHub repo:
-
-   .. code-block:: console
-
-      sudo git pull origin main
-
-#. Undo the ``git stash`` action, bringing our local changes back where they need to be:
-
-   .. code-block:: console
-
-      sudo git stash pop
-
-#. Run the F5 AST Configuration Helper:
-
-   .. code-block:: console
-
-      sudo docker run --rm -it -w /app -v ${PWD}:/app --entrypoint /app/src/bin/init_entrypoint.sh python:3.12.6-slim-bookworm --generate-config
-
-#. Restart the OTel Custom Collector container:
-
-   .. code-block:: console
-
-      sudo docker container restart application-study-tool_otel-collector_1
-
-That's it! The upgrade process should be seamless and good to go.
+        Creating network "application-study-tool_7lc_network" with the default driver
+        Creating grafana                                 ... done
+        Creating application-study-tool_otel-collector_1 ... done
+        Creating prometheus                              ... done
 
 
 .. _`Accessing F5 AST`:
@@ -332,7 +352,7 @@ Accessing F5 AST
 
 Here's where our boots hit the ground and the real adventure begins!
 
-#. From within the UDF course deployment's **Super Jump Host** System, locate and select **ACCESS**, then **Firefox**.
+#. From within the UDF course deployment's **App Services & Traffic Generation** System, locate and select **ACCESS**, then **Self-Installed Grafana**.
 
     .. image:: images/udf_firefox_access.png
         :width: 800
