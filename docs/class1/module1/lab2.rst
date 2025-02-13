@@ -24,37 +24,41 @@ As you will see in the following module, the installation and configuration proc
 
 But first, let's take a few moments to briefly get our feet wet with Docker and examine the UDF lab environment.
 
-   #. Navigate to the **App Study Tool** component with the UDF lab, then select **Access** and **Web Shell**.
+.. attention:: Some platforms may require the ``Shift`` key in conjunction with standard copy/paste key combinations when interacting with the **Web Shell**
 
-   #. Once the new tab appears and you're on the terminal, view the Docker version by entering the following command:
+   For example, use ``Shift + Ctrl + v`` to paste instead of ``Ctrl + v``
 
-      .. code-block:: console
+#. Navigate to the **Application Study Tool** component with the UDF lab, then select **Access** and **Web Shell**.
 
-         sudo docker -v
+#. Once the new tab appears and you're on the terminal, view the Docker version by entering the following command:
 
-   #. Curious which containers Docker are running? Perform this command:
+   .. code-block:: console
 
-      .. code-block:: console
+      sudo docker -v
 
-         sudo docker ps
+#. Curious which containers Docker are running? Perform this command:
 
-      .. note:: *docker ps* instructs Docker to list all **running** containers. Adding the *-a* argument will include containers not currently running.
-         
-         This can be helpful as an initial step when troubleshooting container issues, as you can see when each container was created and its status.
+   .. code-block:: console
 
-   #. To view all images available for Docker to run as containers, enter the following command:
+      sudo docker ps
 
-      .. code-block:: console
+   .. note:: *docker ps* instructs Docker to list all **running** containers. Adding the *-a* argument will include containers not currently running.
+      
+      This can be helpful as an initial step when troubleshooting container issues, as you can see when each container was created and its status.
 
-         sudo docker image ls
+#. To view all images available for Docker to run as containers, enter the following command:
 
-   #. Ever wonder how to inspect Docker container logs? Run the following:
+   .. code-block:: console
 
-      .. code-block:: console
+      sudo docker image ls
 
-         sudo docker container logs application-study-tool_otel-collector_1
+#. Ever wonder how to inspect Docker container logs? Run the following:
 
-      .. note:: Reflect back upon the output of ``docker ps`` and you will notice a line item in the table with a name of ``application-study-tool_otel-collector_1``. This name can be referenced when interogating containers via the ``docker container <command> <container_name>`` sequence.
+   .. code-block:: console
+
+      sudo docker container logs application-study-tool_otel-collector_1
+
+   .. note:: Reflect back upon the output of ``docker ps`` and you will notice a line item in the table with a name of ``application-study-tool_otel-collector_1``. This name can be referenced when interogating containers via the ``docker container <command> <container_name>`` sequence.
 
 
 We highly encourage you to learn more about containerization and recommend `Docker for Beginners <https://docker-curriculum.com/>`_, as it is a well-written, comprehensive guide which builds a solid foundation for further growth.

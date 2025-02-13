@@ -143,7 +143,7 @@ Available Metrics include:
 Device WAF Overview
 -------------------
 
-The security-minded folks will thoroughly enjoy F5 AST's **Device WAF Overview** dashboard.
+Security-minded folks in the room will thoroughly enjoy F5 AST's **Device WAF Overview** dashboard.
 
 Available Metrics include:
 
@@ -359,7 +359,7 @@ Available Metrics include:
 Device iRules
 -------------
 
-The **Device iRules** dashboard should come as no surprise to anyone familiar with F5 BIG-IP. iRules are an integral part of powering application delivery, and having operational state data such as *iRule Execution Rate* and *iRule Failure Rate* is critical. You can even dig deeper and learn about *Failures by Event Type*.
+The **Device iRules** dashboard should come as no surprise to anyone familiar with F5 BIG-IP. iRules are an integral part of powering application delivery, and having operational state data such as *iRule Execution Rate* and *iRule Failure Rate* is critical and revealing. You can even dig deeper and learn about *Failures by Event Type*.
 
 Available Metrics include:
 

@@ -354,25 +354,45 @@ Here's where our boots hit the ground and the real adventure begins!
 
 #. From within the UDF course deployment's **App Services & Traffic Generation** System, locate and select **ACCESS**, then **Self-Installed Grafana**.
 
-    .. image:: images/udf_firefox_access.png
+    .. image:: images/udf_selfinstall_grafana_access.png
         :width: 800
 
-#. Once the new browser tab has loaded, you will be presented with a nested Firefox browser that's running within the UDF lab. Click into the search/navigation bar and select the **Dashboards - Grafana**
+#. Once the new browser tab has loaded, you will be presented with the self-installed AST Grafana login. Enter the following credentials and select **Log in**.
 
-    .. image:: images/udf_grafana_browser_link.png
-        :width: 800
-
-    As you can see, the F5 AST Grafana dashboard is available via the following URL in your lab environment:
+    Username
 
     .. code-block:: console
 
-        http://10.1.1.10:3000/dashboards
+        admin
+
+    Password
+
+    .. code-block:: console
+
+        admin
+
+    .. image:: images/grafana_login.png
+        :width: 800
+
+    Although you won't see the internal, local URL, the self-installed F5 AST Grafana dashboard is exposed via:
+
+    .. code-block:: console
+
+        http://10.1.1.9:3000/dashboards
+
+#. Next, you'll be presented with the Grafana homepage. From here, select the menu button next to **Home**, then **Dashboards**.
+
+    .. image:: images/grafana_home.png
+        :width: 800
+
+    .. image:: images/grafana_access_dashboards.png
+        :width: 400
 
 #. The **Dashboards** landing page presents users with a couple standalone dashboards and a few collections of dashboards, per the image below.
 
     .. image:: images/grafana_dashboards.png
         :width: 800
 
-In the next module you will learn about all of the available pre-packaged dashboards. The door's open for you to step in and take a look around the F5 Application Study Tool!
+In :ref:`Exploring the F5 AST Dashboards`, you will learn about all of the available pre-packaged dashboards. The door's open for you to step in and take a look around the F5 Application Study Tool!
 
-Please select **Next** below and continue on to :ref:`Exploring the F5 AST Dashboards`
+Selecting **Next** below will take you to the :ref:`Configuring the F5 AST` lab, which you may want to skip, since you've already walked through the full, clean installation and setup process.

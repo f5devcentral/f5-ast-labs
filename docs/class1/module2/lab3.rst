@@ -1,7 +1,7 @@
 .. _Configuring the F5 AST:
 
-Lab 3 - Reviewing, Updating, and Accessing a Pre-Installed F5 AST Instance
-==========================================================================
+Lab 3 - Reviewing, Updating, and Accessing the Pre-Installed F5 AST Instance
+============================================================================
 
 .. attention:: Some platforms may require the ``Shift`` key in conjunction with standard copy/paste key combinations when interacting with the **Web Shell**
 
@@ -10,7 +10,7 @@ Lab 3 - Reviewing, Updating, and Accessing a Pre-Installed F5 AST Instance
 Environment Variables
 ---------------------
 
-#. If your previously-opened *web shell* has closed or timed out, navigate to the **Application Study Tool** component with the UDF lab, then select **Access** and **Web Shell**.
+#. Navigate to the **Application Study Tool** component with the UDF lab, then select **Access** and **Web Shell**.
 
 #. Change over to the ``application-study-tool`` repo's root directory:
 
@@ -92,7 +92,7 @@ F5 AST Configuration Setting Files
     
     .. note:: Default device settings can be overridden by individual device configurations in the ``config/bigip_receivers.yaml`` file.
 
-    As mentioned in Step 4 of :ref:`Accessing and Using the GitHub Repository`, we need to add a new BIG-IP instance for data scraping: ``West Region - bigip-01``. 
+    As mentioned at the end of :ref:`Accessing and Using the GitHub Repository`, we need to add a new BIG-IP instance for data scraping: ``West Region - bigip-01 (10.1.1.7)``. 
 
 #. First, inspect the ``config/bigip_receivers.yaml`` file with the following command:
 
@@ -100,7 +100,7 @@ F5 AST Configuration Setting Files
 
         more config/bigip_receivers.yaml
 
-    Here's the configuration for ``Central Region - bigip-01``:
+    Here's the configuration for ``Central Region - bigip-01 (10.1.1.5)``:
 
     .. code-block:: console
 
@@ -112,31 +112,24 @@ F5 AST Configuration Setting Files
         bigip/1:
           endpoint: https://10.1.1.5
           data_types:
+            f5.apm:
+              enabled: false
+            f5.cgnat:
+              enabled: false
             f5.dns:
+              enabled: true
+            f5.dos:
+              enabled: true
+            f5.firewall:
               enabled: true
             f5.gtm:
               enabled: true
-          # tls:
-          #   insecure_skip_verify: true
-          #   ca_file:
 
-    Notice how there are effectively six lines of configuration for this BIG-IP, as its authentication settings are inherited from the ``ast_defaults.yaml`` file.
-
-    In essence, that configuration boils down to this:
-
-    .. code-block:: console
-
-        bigip/1:
-          endpoint: https://10.1.1.5
-          data_types:
-            f5.dns:
-              enabled: true
-            f5.gtm:
-              enabled: true
+    Notice how the configuration for this BIG-IP consists of the *endpoint* (management) IP address and the *data_types* (modules) enabled/disabled for collection. Its authentication settings are inherited from the ``ast_defaults.yaml`` file.
 
     Upon further examination of `the default configuration <https://github.com/f5devcentral/application-study-tool/blob/main/config/bigip_receivers.yaml>`_, the inline documentation makes understanding the settings and options an achievable task.
 
-    Now that we've come familiar with the configuration settings, it's time to add a new BIG-IP section to the yaml file.
+    Now that we've become familiar with the configuration settings, it's time to add a new BIG-IP section to the yaml file.
 
 #. Open ``bigip_receivers.yaml`` for editing using ``vim`` (or another editor of your choosing):
 
@@ -146,7 +139,7 @@ F5 AST Configuration Setting Files
 
     While in vim, press ``Shift+G`` to take your cursor to the bottom line. Next, type ``o`` to create a new line and enter insert mode.
 
-    Press ``backspace`` til the cursor is in the left-most position.
+    Press ``backspace`` until the cursor is in the left-most position.
 
     Now, copy the following and paste it into the editor:
 
@@ -159,7 +152,7 @@ F5 AST Configuration Setting Files
 
     .. code-block:: console
 
-        "config/bigip_receivers.yaml" 82L, 2714B written
+        "config/bigip_receivers.yaml" 37L, 768B written
 
 F5 AST Configuration Helper
 ---------------------------
@@ -176,13 +169,13 @@ Once the ``bigip_receivers.yaml`` file has been updated, you must run the config
 
     .. code-block:: console
 
-        2024-11-19 06:28:46,272 - INFO - Successfully wrote data to './services/otel_collector/pipelines.yaml'.
-        2024-11-19 06:28:46,273 - INFO - Successfully wrote data to './services/otel_collector/receivers.yaml'.
+        2025-02-13 00:04:36,530 - INFO - Successfully wrote data to './services/otel_collector/pipelines.yaml'.
+        2025-02-13 00:04:36,533 - INFO - Successfully wrote data to './services/otel_collector/receivers.yaml'.
 
 Updating F5 AST
 ---------------
 
-Let's check the AST OTel collector version by examining the ``docker-compose.yaml`` file, which resides in the repo root directory. The version running in this lab's corresponding UDF environment should, but may not always be up-to-date.
+Let's check the AST OTel collector version by examining the ``docker-compose.yaml`` file, which resides in the repo root directory. The version running in this lab's corresponding UDF environment may not always be up-to-date, given F5 AST's rapid, iterative development cycle.
 
 #. Review the ``docker-compose.yaml`` file:
 

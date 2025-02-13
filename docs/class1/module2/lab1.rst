@@ -24,7 +24,7 @@ Here it is, served to you on a nice, bountiful SaaS platter: |application-study-
 
     .. note:: This is a fairly comprehensive guide for installing, managing, and updating the F5 AST. We won't follow it verbatim, but will touch on the fundamentals.
         
-        We recommend you fully review and keep this and the `Docsite <https://f5devcentral.github.io/application-study-tool/>`_ in your bookmarks.
+        We recommend you fully review and keep the F5 Application Study Tool repo and the `Docsite <https://f5devcentral.github.io/application-study-tool/>`_ in your bookmarks.
 
 #. On the right side of the page are links to **Releases** and **Packages**
 
@@ -61,12 +61,10 @@ Here it is, served to you on a nice, bountiful SaaS platter: |application-study-
         # Start the tool
         docker-compose up
 
-    In this lab, the F5 Application Study Tool has already been installed, partially configured, and started on ``http://10.1.1.11:3001``.
+In the UDF lab environment, a copy of the F5 Application Study Tool has already been installed, partially configured, and started on the **Application Study Tool** UDF system, exposed via ``http://10.1.1.11:3001``.
 
-    If you'd like to perform the installation yourself, please continue on to :ref:`Installing the F5 AST`.
-    
-    If you'd rather skip the installation, :ref:`Configuring the F5 AST` is the place to be. There's an F5 BIG-IP in our UDF lab environment which is not yet being monitored by the pre-installed F5 AST instance and needs to be added to the ``config/bigip_receivers.yaml`` file.
+If you'd like to perform a full installation yourself, please continue on to :ref:`Installing the F5 AST`.
 
-    With that said, we should review and familiarize ourselves with the current configuration and get our hands dirty by modifying it and restarting the OTel container using Docker.
+If you'd rather skip the full installation process, :ref:`Configuring the F5 AST` is the place to be. There's an F5 BIG-IP in the UDF course lab environment which is not yet being monitored by the pre-installed F5 AST instance and needs to be added to the ``config/bigip_receivers.yaml`` file. This will give you an opportunity to review, familiarize yourself, and interact with the current pre-installed F5 AST configuration. It's a nice chance to get your hands dirty by modifying it and restarting the OTel container using Docker.
 
 Please select **Next** below and continue on to :ref:`Installing the F5 AST`

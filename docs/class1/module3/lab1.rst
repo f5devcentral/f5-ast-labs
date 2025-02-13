@@ -12,7 +12,7 @@ In this lab, we'll explore the Application Study Tool's BIG-IP Fleet dashboards:
 
 .. note:: There is an `exhaustive list of metrics <https://github.com/f5devcentral/application-study-tool/blob/main/pages/components/otel_collector/receiver_metrics.md>`_ collected, some of which have been exposed through the pre-built dashboards you are about to explore.
 
-    These dashboards provide views into fundamental metrics we have observed have value in real-world scenarios, based upon field experience. We have designed this tool in a way that facilitates and enables users to customize it to meet their unique needs. Grafana provides just that, and we encourage you to add it into your toolbelt.
+    These dashboards provide views into fundamental metrics we have observed have value in real-world scenarios, based upon field experience. We have designed this tool in a way that facilitates and enables users to customize it to meet their unique needs. Grafana provides just that, and we encourage you to add it to your toolbelt.
 
 #. From the **Grafana Dashboards** landing page, select **BIG-IP - Fleet**
 
@@ -32,7 +32,6 @@ The **Fleet Inventory** dashboard is your one-stop shop for a list of all the F5
 Available Metrics include:
 
 * Total Inventory by Software Version
-* Total Inventory by Device Type
 * Inventory Total by Device Type
 * Online Inventory by Version
 * Inventory Detail
@@ -79,7 +78,7 @@ Virtual Servers
 
 The **Virtual Servers** dashboard give a view into *availability* and *connection/data rate* stats.
 
-From here, you can also see *if changes have occurred within the past 24 hours*, which answers one of the very first incident-triage questions... **what changed**?
+From here, you can also see *if changes have occurred within the past 24 hours* via the *Gen. Changes [24h]* column within the *Fleet Virtual Server Details* section, which answers one of the very first incident-triage questions... **what changed**?
 
 Available Metrics include:
 
