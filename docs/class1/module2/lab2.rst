@@ -364,7 +364,9 @@ F5 Application Study Tool Installation and Setup
 
     .. code-block:: console
 
-        sudo docker-compose up -d
+        sudo docker compose up -d
+
+    .. note:: Depending on the version of Docker installed, you may need to run **sudo docker-compose up -d**. The command above is tailored to the version of Docker installed within the UDF lab at the time this guide was authored.
 
     You should see output similar to the following:
 

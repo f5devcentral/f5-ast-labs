@@ -260,7 +260,7 @@ Here's where our boots hit the ground and the real adventure begins!
 
     .. code-block:: console
 
-        http://10.1.1.11:3001/dashboards
+        http://10.1.1.11:3000/dashboards
 
 #. Next, you'll be presented with the Grafana homepage. From here, select the menu button next to **Home**, then **Dashboards**.
 

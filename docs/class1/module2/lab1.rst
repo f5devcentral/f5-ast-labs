@@ -61,7 +61,7 @@ Here it is, served to you on a nice, bountiful SaaS platter: |application-study-
         # Start the tool
         docker-compose up
 
-In the UDF lab environment, a copy of the F5 Application Study Tool has already been installed, partially configured, and started on the **Application Study Tool** UDF system, exposed via ``http://10.1.1.11:3001``.
+In the UDF lab environment, a copy of the F5 Application Study Tool has already been installed, partially configured, and started on the **Application Study Tool** UDF system, exposed via ``http://10.1.1.11:3000``.
 
 If you'd like to perform a full installation yourself, please continue on to :ref:`Installing the F5 AST`.
 
