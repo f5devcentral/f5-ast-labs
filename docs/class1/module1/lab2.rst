@@ -14,7 +14,7 @@ The tech industry has come a long way from the days of a single application host
 
 Containers have revolutionized what it means and entails to deploy and manage software, whether it's a single container or a Kubernetes environment consisting of tens, hundreds, or even thousands of interconnected containers.
 
-.. note:: You may have heard the term **micro-services** floating around in recent years. Containerization is a foundational key to the success and proliferation of micro-services architectures.
+.. Note:: You may have heard the term **micro-services** floating around in recent years. Containerization is a foundational key to the success and proliferation of micro-services architectures.
 
 At F5, our home is in the heart of application delivery and security, which exposes us to nearly every form of application deployment. We aim to not only stay aligned with modern application infrastructure practices, but also help forge the road ahead and be forward-thinking. Because of this, we are continually evaluating how we design, produce, and deploy our own software.
 
@@ -27,7 +27,6 @@ But first, let's take a few moments to briefly get our feet wet with Docker and 
 .. attention:: Some platforms may require the ``Shift`` key in conjunction with standard copy/paste key combinations when interacting with the **Web Shell**
 
    For example, use ``Shift + Ctrl + v`` to paste instead of ``Ctrl + v``
-
 
 #. Navigate to the **Application Study Tool** component with the UDF lab, then select **Access** and **Web Shell**.
 

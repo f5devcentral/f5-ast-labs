@@ -138,7 +138,7 @@ Available Metrics include:
 
     Then again, if you're reading this alongside a UDF Course, why leave so soon? There's plenty of stuff to check out in **Grafana** and this is an opportunity to explore!
     
-    Also, don't forget about `Docker for Beginners <https://docker-curriculum.com/>`_. A Docker lab environment is at your fingertips, might as well check it out.
+    Also, don't forget about `Docker for Beginners <https://docker-curriculum.com/>`_. A Docker lab environment is at your fingertips; might as well check it out as well if time permits.
 
 .. note:: One of the *best* ways to ensure you're in the know as it relates to the **F5 AST** is by having a conversation with *your F5 account team* and voicing your interest, thoughts, and opinions.
 

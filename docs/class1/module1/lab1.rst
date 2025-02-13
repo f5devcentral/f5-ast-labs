@@ -35,7 +35,7 @@ In order to take advantage of the F5 AST, one must simply have the means by whic
 
 Installation can be performed via GitHub repo or by downloading the source tarball from the GitHub repo's release section. These details are covered in :ref:`Installing and Configuring the F5 AST`.
 
-Post-installation, configuration is straightforward and approachable, enabling you to start collecting your F5 BIG-IP data within a matter of minutes. You need only follow a few basic steps to set up the environment, device credentials, device list, and start the containers.
+Post installation, configuration is straightforward and approachable, enabling you to start collecting your F5 BIG-IP data within a matter of minutes. You need only follow a few basic steps to set up the environment, device credentials, device list, and start the containers.
 
 You may also `enable data export to F5 <https://github.com/f5devcentral/application-study-tool?tab=readme-ov-file#configure-periodic-metric-data-export-to-f5>`_, allowing your account engineer to view the very same metrics you see. This can be invaluable when looking for assistance from your helpful F5 solutions engineer or architect!
 
