@@ -219,23 +219,54 @@ F5 Application Study Tool Installation and Setup
         bigip/1:
           endpoint: https://10.1.1.5
           data_types:
+            f5.apm:
+              enabled: false
+            f5.cgnat:
+              enabled: false
             f5.dns:
+              enabled: true
+            f5.dos:
+              enabled: true
+            f5.firewall:
               enabled: true
             f5.gtm:
               enabled: true
-          # tls:
-          #   insecure_skip_verify: true
-          #   ca_file:
         bigip/2:
           endpoint: https://10.1.1.6
+          data_types:
+            f5.apm:
+              enabled: false
+            f5.cgnat:
+              enabled: false
+            f5.dns:
+              enabled: false
+            f5.dos:
+              enabled: false
+            f5.firewall:
+              enabled: true
+            f5.gtm:
+              enabled: false
         bigip/3:
           endpoint: https://10.1.1.7
+          data_types:
+            f5.apm:
+              enabled: false
+            f5.cgnat:
+              enabled: false
+            f5.dns:
+              enabled: false
+            f5.dos:
+              enabled: false
+            f5.firewall:
+              enabled: false
+            f5.gtm:
+              enabled: false
 
     To save your changes, press ``escape``, then type ``:wq`` and ``return``. You should see a message similar to the following upon successful save:
 
     .. code-block:: console
 
-        "config/bigip_receivers.yaml" 19L, 496B written
+        "config/bigip_receivers.yaml" 50L, 986B written
 
 #.  Run the Configuration Generator
 
