@@ -203,7 +203,7 @@ F5 Application Study Tool Installation and Setup
 
     For the sake of simplicity, we're going to remove all contents of the file, then paste in the new configuration.
 
-    First, we need to **set paste** within vim by typing ``:set paste`` and pressing ``return``. It will appear as though nothing has occurred. This is expected behavior.
+    In order to preserve the formatting of multi-line copy/paste, we need to **set paste** within vim by typing ``:set paste`` and pressing ``return``. It will appear as though nothing has occurred. This is expected behavior.
 
     To remove the existing configuration, type ``:%d`` and press ``return``. This will delete all lines.
 

@@ -137,6 +137,8 @@ F5 AST Configuration Setting Files
 
         vim config/bigip_receivers.yaml
 
+    In order to preserve the formatting of multi-line copy/paste, we need to **set paste** within vim by typing ``:set paste`` and pressing ``return``. It will appear as though nothing has occurred. This is expected behavior.
+    
     While in vim, press ``Shift+G`` to take your cursor to the bottom line. Next, type ``o`` to create a new line and enter insert mode.
 
     Press ``backspace`` until the cursor is in the left-most position.
