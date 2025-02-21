@@ -21,7 +21,7 @@ System Overview
 The F5 LADT relies on a specially-crafted iRule to export per-request metadata to the analysis system, running on-prem. The analysis system consists of:
 
 - Opentelemetry Collector: For receiving incoming logs, processing, and forwarding them to storage system
-- Clickhouse Database: For storing log data and running analysis queries
+- ClickHouse Database: For storing log data and running analysis queries
 - Analysis Job: Runs periodically to generate results
 - Grafana: For visualizing results, and system component states
 

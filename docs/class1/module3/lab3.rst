@@ -143,3 +143,7 @@ Available Metrics include:
 .. note:: One of the *best* ways to ensure you're in the know as it relates to the **F5 AST** is by having a conversation with *your F5 account team* and voicing your interest, thoughts, and opinions.
 
     Unsure who's on your account team? No problem. Head over to `Get F5 <https://www.f5.com/products/get-f5>`_  and submit an inquiry mentioning the **F5 Application Study Tool**.
+
+But wait, THERE'S MORE! We've added a bonus section to the UDF lab environment and this guide: **the F5 Local API Discovery Tool**.
+
+Select **Next** below for a preview of this extension to the **F5 AST!**
