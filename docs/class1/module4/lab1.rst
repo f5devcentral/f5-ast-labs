@@ -100,3 +100,51 @@ under real world network conditions would likely be quite a bit lower.
      - 106%
      - 245MiB
      - 1000MiB
+
+The analysis script adds an additional ~10% CPU and 250MiB of load to the clickhouse instance while performing analysis.
+
+.. list-table:: Analysis Characteristics
+   :widths: 25 25
+   :header-rows: 1
+
+   * - Analyzed Messages
+     - Analysis Duration Sec
+   * - 1000
+     - 113ms
+   * - 10000
+     - 0.9s
+   * - 10000
+     - 6.67s
+   * - 20000
+     - 14.7s
+   * - 1.04M
+     - 1.12min
+   * - 2.2M
+     - 2.51min
+   * - 10M
+     - 4.06min
+
+Disk space usage likewise depends on volume, but clickhouse provides a good amount of compression (here 758 million entries are stored in ~210MiB).
+
+.. list-table:: Disk Space Usage
+   :widths: 15 15 15 15 15 15
+   :header-rows: 1
+
+   * - Rows
+     - Disk Size
+     - Bytes Size
+     - Compressed Size
+     - Uncompressed Size
+     - Ratio
+   * - 758799480
+     - 210.24MiB
+     - 220452423
+     - 209.25 MiB
+     - 21.16 GiB
+     - 0.00965486284484136
+
+.. note:: As previously mentioned, we won't get digging into the installation details or process within this lab module.
+    
+    If you're interested in going down that path and learning more, please visit the `F5 LADT GitHub Repo's Installation section <https://github.com/f5devcentral/ast-api-discovery/blob/main/README.md#installation>`_
+
+Select **Next** below for to learn how to access the F5 LADT Grafana instance in the UDF lab environment.
