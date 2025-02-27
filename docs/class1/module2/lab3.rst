@@ -149,6 +149,8 @@ F5 AST Configuration Setting Files
 
         bigip/3:
           endpoint: https://10.1.1.7
+          tls:
+            insecure_skip_verify: true
 
     To save your changes, press ``escape``, then type ``:wq`` and ``return``. You should see a message similar to the following upon successful save:
 
@@ -174,6 +176,14 @@ Once the ``bigip_receivers.yaml`` file has been updated, you must run the config
         2025-02-13 00:04:36,530 - INFO - Successfully wrote data to './services/otel_collector/pipelines.yaml'.
         2025-02-13 00:04:36,533 - INFO - Successfully wrote data to './services/otel_collector/receivers.yaml'.
 
+#. Restart the OTel Custom Collector container:
+
+    .. code-block:: console
+
+        sudo docker-compose restart otel-collector
+
+
+
 Updating F5 AST
 ---------------
 
@@ -192,7 +202,7 @@ Let's check the AST OTel collector version by examining the ``docker-compose.yam
         otel-collector:
           image: ghcr.io/f5devcentral/application-study-tool/otel_custom_collector:v0.8.0
 
-   This particular output reveals ``v0.8.0`` of the OTel Custom Collector. If that version is lower than what's listed on the `f5devcentral / application-study-tool Releases board <https://github.com/f5devcentral/application-study-tool/releases/tag/v0.7.0>`_, perform the following steps. Otherwise, you're ready and free to roll on to :ref:`Accessing F5 AST`.
+   This particular output reveals ``v0.8.1`` of the OTel Custom Collector. If that version is lower than what's listed on the `f5devcentral / application-study-tool Releases board <https://github.com/f5devcentral/application-study-tool/releases/>`_, perform the following steps. Otherwise, you're ready and free to roll on to :ref:`Accessing F5 AST`.
 
 #. Since local changes have been made to files which are actively tracked for changes in the repo, such as ``.env.device-secrets`` and ``config/bigip_receivers.yaml``, we must stash away those changes prior to performing a ``git pull``. Stashing simply sets them aside temporarily. We'll reincorporate them after pulling the latest code from GitHub.
 
@@ -222,7 +232,7 @@ Let's check the AST OTel collector version by examining the ``docker-compose.yam
 
     .. code-block:: console
 
-        sudo docker container restart otel-collector
+        sudo docker-compose restart otel-collector
 
 That's it! The upgrade process should be seamless and good to go.
 
