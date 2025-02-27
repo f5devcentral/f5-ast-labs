@@ -195,15 +195,21 @@ F5 Application Study Tool Installation and Setup
 
         "config/ast_defaults.yaml" 72L, 3286B written
 
-#. Edit the ``BIG-IP Receivers`` configuration file
+#. Open the ``BIG-IP Receivers`` configuration file for editing
 
     .. code-block:: console
 
         sudo vim config/bigip_receivers.yaml
 
-    For the sake of simplicity, we're going to remove all contents of the file, then paste in the new configuration.
+#. In order to preserve the formatting of multi-line copy/paste with vim, we need to **set paste** by copy/pasting the following into vim and pressing ``return``.
 
-    In order to preserve the formatting of multi-line copy/paste, we need to **set paste mode** within vim by typing ``:set paste`` and pressing ``return``. It will appear as though nothing has occurred. This is expected behavior.
+    .. code-block:: console
+      
+        :set paste
+
+    .. note:: It will appear as though nothing has occurred. This is expected behavior.
+
+#. For the sake of simplicity, we're going to remove all contents of the file, then paste in the new configuration.
 
     To remove the existing configuration, type ``:%d`` and press ``return``. This will delete all lines.
 
@@ -445,8 +451,8 @@ F5 Application Study Tool Installation and Setup
 
 .. _`Accessing F5 AST`:
 
-Accessing F5 AST
-----------------
+Accessing Self-Installed F5 AST
+-------------------------------
 
 Here's where our boots hit the ground and the real adventure begins!
 

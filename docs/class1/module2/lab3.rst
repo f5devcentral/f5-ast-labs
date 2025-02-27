@@ -135,7 +135,7 @@ F5 AST Configuration Setting Files
 
     .. code-block:: console
 
-        vim config/bigip_receivers.yaml
+        sudo vim config/bigip_receivers.yaml
 
 #. In order to preserve the formatting of multi-line copy/paste with vim, we need to **set paste** by copy/pasting the following into vim and pressing ``return``.
 
@@ -146,8 +146,6 @@ F5 AST Configuration Setting Files
     .. note:: It will appear as though nothing has occurred. This is expected behavior.
 
 #. While in vim, press ``Shift+G`` to take your cursor to the bottom line. Next, type ``o`` to create a new line and enter insert mode.
-
-    Press ``backspace`` until the cursor is in the left-most position.
 
     Now, copy the following and paste it into the editor:
 
@@ -245,8 +243,8 @@ That's it! The upgrade process should be seamless and good to go.
 
 .. _`Accessing F5 AST`:
 
-Accessing F5 AST
-----------------
+Accessing Pre-Installed F5 AST
+------------------------------
 
 Here's where our boots hit the ground and the real adventure begins!
 
