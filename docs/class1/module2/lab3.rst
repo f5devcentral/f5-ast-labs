@@ -135,13 +135,17 @@ F5 AST Configuration Setting Files
 
     .. code-block:: console
 
-        vim config/bigip_receivers.yaml
+        sudo vim config/bigip_receivers.yaml
 
-    In order to preserve the formatting of multi-line copy/paste, we need to **set paste** within vim by typing ``:set paste`` and pressing ``return``. It will appear as though nothing has occurred. This is expected behavior.
-    
-    While in vim, press ``Shift+G`` to take your cursor to the bottom line. Next, type ``o`` to create a new line and enter insert mode.
+#. In order to preserve the formatting of multi-line copy/paste with vim, we need to **set paste** by copy/pasting the following into vim and pressing ``return``.
 
-    Press ``backspace`` until the cursor is in the left-most position.
+    .. code-block:: console
+      
+        :set paste
+
+    .. note:: It will appear as though nothing has occurred. This is expected behavior.
+
+#. While in vim, press ``Shift+G`` to take your cursor to the bottom line. Next, type ``o`` to create a new line and enter insert mode.
 
     Now, copy the following and paste it into the editor:
 
@@ -210,11 +214,23 @@ Let's check the AST OTel collector version by examining the ``docker-compose.yam
 
         sudo git stash
 
+#. Fetch the most up-to-date list of tags from the repo. Without this step, the subsequent ``git checkout`` command in Step 5 will fail.
+
+    .. code-block:: console
+
+        sudo git fetch --tags
+
 #. Pull new code from the GitHub repo:
 
     .. code-block:: console
 
         sudo git pull origin main
+
+#. Set the git branch to the most recent version:
+
+    .. code-block:: console
+
+        git checkout tags/v0.8.1
 
 #. Undo the ``git stash`` action, bringing our local changes back where they need to be:
 
@@ -232,15 +248,15 @@ Let's check the AST OTel collector version by examining the ``docker-compose.yam
 
     .. code-block:: console
 
-        sudo docker-compose restart otel-collector
+        sudo docker-compose down && sudo docker-compose up -d
 
 That's it! The upgrade process should be seamless and good to go.
 
 
 .. _`Accessing F5 AST`:
 
-Accessing F5 AST
-----------------
+Accessing Pre-Installed F5 AST
+------------------------------
 
 Here's where our boots hit the ground and the real adventure begins!
 
