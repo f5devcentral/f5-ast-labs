@@ -214,11 +214,23 @@ Let's check the AST OTel collector version by examining the ``docker-compose.yam
 
         sudo git stash
 
+#. Fetch the most up-to-date list of tags from the repo. Without this step, the subsequent ``git checkout`` command in Step 5 will fail.
+
+    .. code-block:: console
+
+        sudo git fetch --tags
+
 #. Pull new code from the GitHub repo:
 
     .. code-block:: console
 
         sudo git pull origin main
+
+#. Set the git branch to the most recent version:
+
+    .. code-block:: console
+
+        git checkout tags/v0.8.1
 
 #. Undo the ``git stash`` action, bringing our local changes back where they need to be:
 
@@ -236,7 +248,7 @@ Let's check the AST OTel collector version by examining the ``docker-compose.yam
 
     .. code-block:: console
 
-        sudo docker-compose restart otel-collector
+        sudo docker-compose down && sudo docker-compose up -d
 
 That's it! The upgrade process should be seamless and good to go.
 
