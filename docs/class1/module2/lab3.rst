@@ -104,26 +104,50 @@ F5 AST Configuration Setting Files
 
     .. code-block:: console
 
-        # Your bigip targets
-        # Values not explicitly configured here inherit values in
-        # the ast_defaults.yaml bigip_receiver_defaults section.
-        # Each entry must have a unique name, starting with bigip/
-        # (e.g. bigip/1, bigip/2)
-        bigip/1:
-          endpoint: https://10.1.1.5
-          data_types:
-            f5.apm:
-              enabled: false
-            f5.cgnat:
-              enabled: false
-            f5.dns:
-              enabled: true
-            f5.dos:
-              enabled: true
-            f5.firewall:
-              enabled: true
-            f5.gtm:
-              enabled: true
+      # Your bigip targets
+      # Values not explicitly configured here inherit values in
+      # the ast_defaults.yaml bigip_receiver_defaults section.
+      # Each entry must have a unique name, starting with bigip/
+      # (e.g. bigip/1, bigip/2)
+      bigip/1:
+        # Endpoint must be specified for each device
+        # Set this to the management IP for the device. This must be
+        # reachable from the Application Study Tool host (port 443).
+        endpoint: https://10.1.1.5
+        ## Uncommenting any of the following lines will override the defaults in
+        ## ast_defaults.yaml bigip_receiver_defaults section.
+        # username: SOME_OVERRIDE_ACCOUNT_NAME
+        # password: "${SOME_OTHER_ENV_VAR_WITH_ANOTHER_PASSWORD}"
+        # collection_interval: 30s
+        # timeout: 20s
+        data_types:
+          f5.apm:
+            enabled: true
+          f5.cgnat:
+            enabled: true
+          f5.dns:
+            enabled: true
+          f5.dos:
+            enabled: true
+          f5.firewall:
+            enabled: true
+          f5.gtm:
+            enabled: true
+          f5.policy.api_protection:
+            enabled: false
+          f5.policy.asm:
+            enabled: false
+          f5.policy.firewall:
+            enabled: false
+          f5.policy.ip_intelligence:
+            enabled: false
+          f5.policy.nat:
+            enabled: false
+          f5.profile.dos:
+            enabled: false
+        tls:
+          insecure_skip_verify: true
+          # ca_file:
 
     Notice how the configuration for this BIG-IP consists of the *endpoint* (management) IP address and the *data_types* (modules) enabled/disabled for collection. Its authentication settings are inherited from the ``ast_defaults.yaml`` file.
 
@@ -151,10 +175,36 @@ F5 AST Configuration Setting Files
 
     .. code-block:: console
 
-        bigip/3:
-          endpoint: https://10.1.1.7
-          tls:
-            insecure_skip_verify: true
+`      bigip/3:
+        endpoint: https://10.1.1.7
+        data_types:
+          f5.apm:
+            enabled: true
+          f5.cgnat:
+            enabled: true
+          f5.dns:
+            enabled: true
+          f5.dos:
+            enabled: true
+          f5.firewall:
+            enabled: true
+          f5.gtm:
+            enabled: true
+          f5.policy.api_protection:
+            enabled: false
+          f5.policy.asm:
+            enabled: false
+          f5.policy.firewall:
+            enabled: false
+          f5.policy.ip_intelligence:
+            enabled: false
+          f5.policy.nat:
+            enabled: false
+          f5.profile.dos:
+            enabled: false
+        tls:
+          insecure_skip_verify: true
+          # ca_file:`
 
     To save your changes, press ``escape``, then type ``:wq`` and ``return``. You should see a message similar to the following upon successful save:
 

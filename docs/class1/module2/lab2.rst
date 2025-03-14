@@ -149,6 +149,7 @@ F5 Application Study Tool Installation and Setup
           # The data_types that should be enabled or disabled. Default-disabled module users can enable those modules
           # by setting the below to true. These will apply to all devices and may be better specified on the
           # per-reciever settings file.
+          # The full list of available data types is [here](https://f5devcentral.github.io/application-study-tool/components/otel_collector/receiver_readme.html#available-data_types).
           data_types:
             f5.apm:
               enabled: false
@@ -161,6 +162,18 @@ F5 Application Study Tool Installation and Setup
             f5.firewall:
               enabled: false
             f5.gtm:
+              enabled: false
+            f5.policy.api_protection:
+              enabled: false
+            f5.policy.asm:
+              enabled: false
+            f5.policy.firewall:
+              enabled: false
+            f5.policy.ip_intelligence:
+              enabled: false
+            f5.policy.nat:
+              enabled: false
+            f5.profile.dos:
               enabled: false
           # The TLS settings to use. Either a CA file must be specified or insecure_skip_verify
           # set to true (not recommended)
@@ -223,12 +236,21 @@ F5 Application Study Tool Installation and Setup
         # Each entry must have a unique name, starting with bigip/
         # (e.g. bigip/1, bigip/2)
         bigip/1:
+          # Endpoint must be specified for each device
+          # Set this to the management IP for the device. This must be
+          # reachable from the Application Study Tool host (port 443).
           endpoint: https://10.1.1.5
+          ## Uncommenting any of the following lines will override the defaults in
+          ## ast_defaults.yaml bigip_receiver_defaults section.
+          # username: SOME_OVERRIDE_ACCOUNT_NAME
+          # password: "${SOME_OTHER_ENV_VAR_WITH_ANOTHER_PASSWORD}"
+          # collection_interval: 30s
+          # timeout: 20s
           data_types:
             f5.apm:
-              enabled: false
+              enabled: true
             f5.cgnat:
-              enabled: false
+              enabled: true
             f5.dns:
               enabled: true
             f5.dos:
@@ -237,36 +259,90 @@ F5 Application Study Tool Installation and Setup
               enabled: true
             f5.gtm:
               enabled: true
+            f5.policy.api_protection:
+              enabled: false
+            f5.policy.asm:
+              enabled: false
+            f5.policy.firewall:
+              enabled: false
+            f5.policy.ip_intelligence:
+              enabled: false
+            f5.policy.nat:
+              enabled: false
+            f5.profile.dos:
+              enabled: false
+          tls:
+            insecure_skip_verify: true
+            # ca_file:
         bigip/2:
+          # Endpoint must be specified for each device
+          # Set this to the management IP for the device. This must be
+          # reachable from the Application Study Tool host (port 443).
           endpoint: https://10.1.1.6
+          ## Uncommenting any of the following lines will override the defaults in
+          ## ast_defaults.yaml bigip_receiver_defaults section.
+          # username: SOME_OVERRIDE_ACCOUNT_NAME
+          # password: "${SOME_OTHER_ENV_VAR_WITH_ANOTHER_PASSWORD}"
+          # collection_interval: 30s
+          # timeout: 20s
           data_types:
             f5.apm:
               enabled: false
             f5.cgnat:
               enabled: false
             f5.dns:
-              enabled: false
+              enabled: true
             f5.dos:
               enabled: false
             f5.firewall:
               enabled: true
             f5.gtm:
+              enabled: true
+            f5.policy.api_protection:
               enabled: false
+            f5.policy.asm:
+              enabled: false
+            f5.policy.firewall:
+              enabled: false
+            f5.policy.ip_intelligence:
+              enabled: false
+            f5.policy.nat:
+              enabled: false
+            f5.profile.dos:
+              enabled: false
+          tls:
+            insecure_skip_verify: true
+            # ca_file:
         bigip/3:
           endpoint: https://10.1.1.7
           data_types:
             f5.apm:
-              enabled: false
+              enabled: true
             f5.cgnat:
-              enabled: false
+              enabled: true
             f5.dns:
-              enabled: false
+              enabled: true
             f5.dos:
-              enabled: false
+              enabled: true
             f5.firewall:
-              enabled: false
+              enabled: true
             f5.gtm:
+              enabled: true
+            f5.policy.api_protection:
               enabled: false
+            f5.policy.asm:
+              enabled: false
+            f5.policy.firewall:
+              enabled: false
+            f5.policy.ip_intelligence:
+              enabled: false
+            f5.policy.nat:
+              enabled: false
+            f5.profile.dos:
+              enabled: false
+          tls:
+            insecure_skip_verify: true
+            # ca_file:
 
     To save your changes, press ``escape``, then type ``:wq`` and ``return``. You should see a message similar to the following upon successful save:
 
