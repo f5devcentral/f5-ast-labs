@@ -92,8 +92,6 @@ Available Metrics include:
 
   * DNSX Query Rates
 
-  * DNSX Response Rate
-
 * DNS Resolver Cache Hit / Miss Rates
 
   * Client Cache Hits
