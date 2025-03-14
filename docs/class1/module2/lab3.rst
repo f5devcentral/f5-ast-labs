@@ -175,7 +175,7 @@ F5 AST Configuration Setting Files
 
     .. code-block:: console
 
-`      bigip/3:
+      bigip/3:
         endpoint: https://10.1.1.7
         data_types:
           f5.apm:
@@ -204,7 +204,7 @@ F5 AST Configuration Setting Files
             enabled: false
         tls:
           insecure_skip_verify: true
-          # ca_file:`
+          # ca_file:
 
     To save your changes, press ``escape``, then type ``:wq`` and ``return``. You should see a message similar to the following upon successful save:
 
@@ -235,8 +235,6 @@ Once the ``bigip_receivers.yaml`` file has been updated, you must run the config
     .. code-block:: console
 
         sudo docker-compose restart otel-collector
-
-
 
 Updating F5 AST
 ---------------

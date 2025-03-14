@@ -35,9 +35,11 @@ The **Fleet Inventory** dashboard is your one-stop shop for a list of all the F5
 
 Available Metrics include:
 
-* Total Inventory by Software Version
-* Inventory Total by Device Type
+* Inventory Total by Software Version
+* Inventory Total by Product Name
+* Inventory Total by Product Type
 * Online Inventory by Version
+* Module Status
 * Inventory Detail
 
 
