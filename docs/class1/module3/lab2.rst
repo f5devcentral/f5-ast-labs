@@ -355,7 +355,7 @@ Available Metrics include:
 Device GTM
 ----------
 
-Last, but certainly not least, the **Device GTM** dashboard provides a view of the DNS and global resiliency metrics across your F5 BIG-IP estate.
+The **Device GTM** dashboard provides a view of the DNS and global resiliency metrics across your F5 BIG-IP estate.
 
 .. note:: One of the first things you'll notice about this dashboard is the presence of configuration instructions. Please take note of these and be sure your ``ast_defaults.yaml`` and ``bigip_receivers.yaml`` files are properly configured. Otherwise, stats will not be collected and displayed.
 
@@ -372,7 +372,7 @@ Available Metrics include:
 Device SSL
 ----------
 
-The **Device SSL** dashboard ...
+Last, but certainly not least, the **Device SSL** dashboard gives administrators a view of NetHSM statistics as well as client and server SSL profile data and stats. This is a very important area of focus, as BIG-IP is almost always used as a means by which to offload SSL operations and break/inspect application traffic.
 
 Available Metrics include:
 
