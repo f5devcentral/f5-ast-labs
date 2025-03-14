@@ -10,9 +10,9 @@ In this lab, we'll explore the Application Study Tool's BIG-IP Device dashboards
 - Device WAF Overview
 - Device Pools
 - Device Virtual Servers
-- Device Virtual Server Details
 - Device iRules
 - Device GTM
+- Device SSL
 
 .. note:: There is an `exhaustive list of metrics <https://github.com/f5devcentral/application-study-tool/blob/main/pages/components/otel_collector/receiver_metrics.md>`_ collected, some of which have been exposed through the pre-built dashboards you are about to explore.
 
@@ -85,7 +85,6 @@ Available Metrics include:
   * Top 10 iRules by Approximate Cycles Used (last 24 hours)
 
 
-
 .. image:: images/device_topn_dashboard.png
     :width: 800
 
@@ -112,7 +111,7 @@ Available Metrics include:
 
   * Failover Peer
 
-  * TMOS Version
+  * Version
 
 * Device Resources
 
@@ -120,13 +119,17 @@ Available Metrics include:
 
   * SubSystem CPU Utilization
 
+  * SubSystem Memory Utilization
+
   * Top 10 Processes by CPU
 
   * Top 10 Processes by Memory
 
   * Memory Utilization
 
-  * SubSystem Memory Utilization
+  * Average CPU Utilization
+
+  * Disk Usage
 
 * Device Virtual Servers
 
@@ -136,6 +139,15 @@ Available Metrics include:
 
   * VS Concurrent Connections
 
+* Device Network
+
+  * Network Addresses
+
+  * Network Interface Data Rate
+
+  * VLAN Info
+
+  * Network Interface Error Rate
 
 .. image:: images/device_overview_dashboard.png
     :width: 800
@@ -234,76 +246,21 @@ Available Metrics include:
 
   * Virtual Server Average Connection Duration
 
-
-.. image:: images/device_virtual_servers_dashboard.png
-    :width: 800
-
-Device Virtual Server Details
------------------------------
-
-The **Device Virtual Server Details** dashboard isolates the user to a specific virtual server and provides additional insights such as *HTTP Requests and Responses per Second* and *DNS Latency in milliseconds*.
-
-Available Metrics include:
-
-* Summary
-
-  * Virtual Server Overview
-
-  * Configuration Changes (last 24 hours)
-
-* Availability
-
-  * Is Virtual Server State Available?
-
-  * Is Virtual Server Enabled?
-
-  * Virtual Server Availability (last 24 hours)
-
-* Configured Objects
-
-  * Virtual Server Pool State
-
-  * Applied iRules
-
-  * Applied Profiles
-
-* CPU Utilization
-
-  * Virtual Server CPU Utilization
-
-  * Virtual Server ASM CPU Utilization
-
-* Traffic
-
-  * Virtual Server Request Rate
-
-  * Virtual Server Traffic
-
-  * Virtual Server Packets Rate
-
-* Connections
-
-  * Virtual Server Concurrent Connections
-
-  * Virtual Server Connection Rate
-
-  * Virtual Server Average Connection Duration
-
 * HTTP
 
-  * HTTP Requests and Responses per Second
+  * HTTP Requests & Responses per Second
 
   * HTTP Responses per Second
 
 * DNS
 
-  * Applied Profiles
+  * Profiles
 
-  * DNS Latency in milliseconds
+  * DNS Latencies per millisecond
 
-  * DNS Queries and Responses per Second
+  * DNS Queries & Responses per Second
 
-  * DNS Express Queries and Responses per Second
+  * DNS Express Queries & Responses per Second
 
 * SSL
 
@@ -312,9 +269,8 @@ Available Metrics include:
   * SSL Handshakes and Renegotiations per Second
 
 
-.. image:: images/device_virtual_servers_details_dashboard.png
+.. image:: images/device_virtual_servers_dashboard.png
     :width: 800
-
 
 Device Pools
 ------------
@@ -351,6 +307,13 @@ Available Metrics include:
 
   * Pool Member Availability (last 24 hours)
 
+* Pool Member Utilization
+
+  * Pool Member Data Rate
+
+  * Active Pool Member Connections
+
+  * Pool Member Request Rate
 
 .. image:: images/device_pools_dashboard.png
     :width: 800
@@ -404,6 +367,48 @@ Available Metrics include:
 
 
 .. image:: images/device_gtm_dashboard.png
+    :width: 800
+
+Device SSL
+----------
+
+The **Device SSL** dashboard ...
+
+Available Metrics include:
+
+* NetHSM Stats
+
+  * Async Queue Done Rate
+
+  * Async Queue Current Queued
+
+  * Async Queue Average Queue Time
+
+  * PKCS11d Operations Rate
+
+  * PKCS11d Error Rate
+
+* Client SSL Profile
+
+  * Client SSL Profile Info
+
+  * Client SSL Connection Rate
+
+  * Client SSL Ciphers Rate
+
+  * Client SSL Handshakes
+
+* Server SSL Profile
+
+  * Server SSL Profile Info
+
+  * Server SSL Connection Rate
+
+  * Server SSL Ciphers Rate
+
+  * Server SSL Handshakes Rate
+
+.. image:: images/device_ssl_dashboard.png
     :width: 800
 
 Please select **Next** below and continue on to :ref:`Device/Profiles`.
