@@ -42,7 +42,6 @@ Available Metrics include:
 * Module Status
 * Inventory Detail
 
-
 .. image:: images/fleet_inventory_dashboard.png
     :width: 800
 
@@ -75,7 +74,6 @@ Available Metrics include:
 
   * Client Side Data Rate In/Out
 
-
 .. image:: images/device_utilization_dashboard.png
     :width: 800
 
@@ -93,7 +91,6 @@ Available Metrics include:
 * Virtual Server Connection Rate
 * Virtual Server Data Rate
 * Fleet Virtual Server Details
-
 
 .. image:: images/fleet_virtual_servers_dashboard.png
     :width: 800
@@ -116,7 +113,6 @@ Available Metrics include:
   * Certs Expiring in less than 180 days
 
 * Certificate Detail List
-
 
 .. image:: images/ssl_certificate_status_dashboard.png
     :width: 800

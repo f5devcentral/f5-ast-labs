@@ -84,7 +84,6 @@ Available Metrics include:
 
   * Top 10 iRules by Approximate Cycles Used (last 24 hours)
 
-
 .. image:: images/device_topn_dashboard.png
     :width: 800
 
@@ -191,7 +190,6 @@ Available Metrics include:
 
   * Parameter Checking Count
 
-
 .. image:: images/device_waf_overview_dashboard.png
     :width: 800
 
@@ -268,7 +266,6 @@ Available Metrics include:
 
   * SSL Handshakes and Renegotiations per Second
 
-
 .. image:: images/device_virtual_servers_dashboard.png
     :width: 800
 
@@ -318,7 +315,6 @@ Available Metrics include:
 .. image:: images/device_pools_dashboard.png
     :width: 800
 
-
 Device iRules
 -------------
 
@@ -348,7 +344,6 @@ Available Metrics include:
 
   * Aborts by Event Type
 
-
 .. image:: images/device_irules_dashboard.png
     :width: 800
 
@@ -364,7 +359,6 @@ Available Metrics include:
 * GTM Overview
 
 * Requests Rate by Type
-
 
 .. image:: images/device_gtm_dashboard.png
     :width: 800

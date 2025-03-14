@@ -128,7 +128,6 @@ Available Metrics include:
 
   * Server Queries
 
-
 .. image:: images/ltm_dns_profile_dashboard.png
     :width: 800
 
