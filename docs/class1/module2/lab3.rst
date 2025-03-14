@@ -206,7 +206,7 @@ Let's check the AST OTel collector version by examining the ``docker-compose.yam
         otel-collector:
           image: ghcr.io/f5devcentral/application-study-tool/otel_custom_collector:v0.8.1
 
-   This particular output reveals ``v0.8.1`` of the OTel Custom Collector. If that version is lower than what's listed on the `f5devcentral / application-study-tool Releases board <https://github.com/f5devcentral/application-study-tool/releases/>`_, perform the following steps. Otherwise, you're ready and free to roll on to :ref:`Accessing F5 AST`.
+   This particular output reveals ``v0.9.1`` of the OTel Custom Collector. If that version is lower than what's listed on the `f5devcentral / application-study-tool Releases board <https://github.com/f5devcentral/application-study-tool/releases/>`_, perform the following steps. Otherwise, you're ready and free to roll on to :ref:`Accessing F5 AST`.
 
 #. Since local changes have been made to files which are actively tracked for changes in the repo, such as ``.env.device-secrets`` and ``config/bigip_receivers.yaml``, we must stash away those changes prior to performing a ``git pull``. Stashing simply sets them aside temporarily. We'll reincorporate them after pulling the latest code from GitHub.
 
@@ -230,7 +230,7 @@ Let's check the AST OTel collector version by examining the ``docker-compose.yam
 
     .. code-block:: console
 
-       sudo git checkout tags/v0.8.1
+       sudo git checkout tags/v0.9.1
 
 #. Undo the ``git stash`` action, bringing our local changes back where they need to be:
 
