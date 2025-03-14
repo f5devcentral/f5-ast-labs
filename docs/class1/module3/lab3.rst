@@ -92,8 +92,6 @@ Available Metrics include:
 
   * DNSX Query Rates
 
-  * DNSX Response Rate
-
 * DNS Resolver Cache Hit / Miss Rates
 
   * Client Cache Hits
@@ -129,7 +127,6 @@ Available Metrics include:
   * Server Response Rate
 
   * Server Queries
-
 
 .. image:: images/ltm_dns_profile_dashboard.png
     :width: 800

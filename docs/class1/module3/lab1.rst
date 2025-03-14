@@ -35,11 +35,12 @@ The **Fleet Inventory** dashboard is your one-stop shop for a list of all the F5
 
 Available Metrics include:
 
-* Total Inventory by Software Version
-* Inventory Total by Device Type
+* Inventory Total by Software Version
+* Inventory Total by Product Name
+* Inventory Total by Product Type
 * Online Inventory by Version
+* Module Status
 * Inventory Detail
-
 
 .. image:: images/fleet_inventory_dashboard.png
     :width: 800
@@ -71,8 +72,7 @@ Available Metrics include:
 
   * Current Client Side Connections
 
-  * Client Side Total Bytes In/Out
-
+  * Client Side Data Rate In/Out
 
 .. image:: images/device_utilization_dashboard.png
     :width: 800
@@ -86,12 +86,11 @@ From here, you can also see *if changes have occurred within the past 24 hours* 
 
 Available Metrics include:
 
-* Virtual Server Availability
+* Virtual Server Availability (24h)
 * Is Virtual Server Available?
 * Virtual Server Connection Rate
 * Virtual Server Data Rate
 * Fleet Virtual Server Details
-
 
 .. image:: images/fleet_virtual_servers_dashboard.png
     :width: 800
@@ -103,18 +102,17 @@ The **SSL Certificate Status** dashboard is both self-explanatory and extraordin
 
 Available Metrics include:
 
-- Summary
+* Summary
 
-  - Certificate Type
+  * Certificate Type
 
-  - Certs Expiring in less than 30 days
+  * Certs Expiring in less than 30 days
 
-  - Certs Expiring in less than 90 days
+  * Certs Expiring in less than 90 days
 
-  - Certs Expiring in less than 180 days
+  * Certs Expiring in less than 180 days
 
-- Certificate Detail List
-
+* Certificate Detail List
 
 .. image:: images/ssl_certificate_status_dashboard.png
     :width: 800
