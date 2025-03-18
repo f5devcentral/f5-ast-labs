@@ -252,7 +252,7 @@ Let's check the AST OTel collector version by examining the ``docker-compose.yam
     .. code-block:: console
 
         otel-collector:
-          image: ghcr.io/f5devcentral/application-study-tool/otel_custom_collector:v0.8.1
+          image: ghcr.io/f5devcentral/application-study-tool/otel_custom_collector:v0.9.1
 
    This particular output reveals ``v0.9.1`` of the OTel Custom Collector. If that version is lower than what's listed on the `f5devcentral / application-study-tool Releases board <https://github.com/f5devcentral/application-study-tool/releases/>`_, perform the following steps. Otherwise, you're ready and free to roll on to :ref:`Accessing F5 AST`.
 
