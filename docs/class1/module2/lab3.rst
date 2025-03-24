@@ -136,7 +136,7 @@ F5 AST Configuration Setting Files
           f5.policy.api_protection:
             enabled: false
           f5.policy.asm:
-            enabled: false
+            enabled: true
           f5.policy.firewall:
             enabled: false
           f5.policy.ip_intelligence:
@@ -252,9 +252,9 @@ Let's check the AST OTel collector version by examining the ``docker-compose.yam
     .. code-block:: console
 
         otel-collector:
-          image: ghcr.io/f5devcentral/application-study-tool/otel_custom_collector:v0.9.1
+          image: ghcr.io/f5devcentral/application-study-tool/otel_custom_collector:v0.9.2
 
-   This particular output reveals ``v0.9.1`` of the OTel Custom Collector. If that version is lower than what's listed on the `f5devcentral / application-study-tool Releases board <https://github.com/f5devcentral/application-study-tool/releases/>`_, perform the following steps. Otherwise, you're ready and free to roll on to :ref:`Accessing F5 AST`.
+   This particular output reveals ``v0.9.2`` of the OTel Custom Collector. If that version is lower than what's listed on the `f5devcentral / application-study-tool Releases board <https://github.com/f5devcentral/application-study-tool/releases/>`_, perform the following steps. Otherwise, you're ready and free to roll on to :ref:`Accessing F5 AST`.
 
 #. Since local changes have been made to files which are actively tracked for changes in the repo, such as ``.env.device-secrets`` and ``config/bigip_receivers.yaml``, we must stash away those changes prior to performing a ``git pull``. Stashing simply sets them aside temporarily. We'll reincorporate them after pulling the latest code from GitHub.
 
@@ -278,7 +278,7 @@ Let's check the AST OTel collector version by examining the ``docker-compose.yam
 
     .. code-block:: console
 
-       sudo git checkout tags/v0.9.1
+       sudo git checkout tags/v0.9.2
 
 #. Undo the ``git stash`` action, bringing our local changes back where they need to be:
 
