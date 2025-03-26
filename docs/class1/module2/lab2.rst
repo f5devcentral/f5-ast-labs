@@ -262,7 +262,7 @@ F5 Application Study Tool Installation and Setup
             f5.policy.api_protection:
               enabled: false
             f5.policy.asm:
-              enabled: false
+              enabled: true
             f5.policy.firewall:
               enabled: false
             f5.policy.ip_intelligence:
@@ -301,7 +301,7 @@ F5 Application Study Tool Installation and Setup
             f5.policy.api_protection:
               enabled: false
             f5.policy.asm:
-              enabled: false
+              enabled: true
             f5.policy.firewall:
               enabled: false
             f5.policy.ip_intelligence:
@@ -331,7 +331,7 @@ F5 Application Study Tool Installation and Setup
             f5.policy.api_protection:
               enabled: false
             f5.policy.asm:
-              enabled: false
+              enabled: true
             f5.policy.firewall:
               enabled: false
             f5.policy.ip_intelligence:
