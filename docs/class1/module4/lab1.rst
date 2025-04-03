@@ -145,6 +145,6 @@ Disk space usage likewise depends on volume, but clickhouse provides a good amou
 
 .. note:: As previously mentioned, we won't get digging into the installation details or process within this lab module.
     
-    If you're interested in going down that path and learning more, please visit the `F5 LADT GitHub Repo's Installation section <https://github.com/f5devcentral/ast-api-discovery/blob/main/README.md#installation>`_
+    If you're interested in going down that path and learning more, please get in touch with your F5 account team and inquire about F5 LADT.
 
 Select **Next** below for to learn how to access the F5 LADT Grafana instance in the UDF lab environment.
