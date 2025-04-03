@@ -3,7 +3,7 @@
 Module 4: Exploring the F5 Local API Discovery Tool
 ===================================================
 
-Here we'll provide a sneak peak at an extension of the **F5 AST** called the **F5 Local API Discovery Tool (LADT)**. The **F5 LADT** is a new development which students can explore in the UDF lab environment, and even get their hands on from the official `F5 DevCentral LADT GitHub Repo! <https://github.com/f5devcentral/ast-api-discovery>`_
+Here we'll provide a sneak peak at an extension of the **F5 AST** called the **F5 Local API Discovery Tool (LADT)**. The **F5 LADT** is a new development which students can explore in the UDF lab environment. If customers would like to get their hands on the F5 LADT, they should reach out to their account team for more details, as the repo is not yet publicly available.
 
 .. note:: At the time of this lab module's publication, the UDF lab environment is not geared toward students performing installation and configuration.
     
