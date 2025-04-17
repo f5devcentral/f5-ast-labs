@@ -278,7 +278,7 @@ Let's check the AST OTel collector version by examining the ``docker-compose.yam
 
     .. code-block:: console
 
-       sudo git checkout tags/v0.9.2
+       sudo git checkout tags/v0.9.3
 
 #. Undo the ``git stash`` action, bringing our local changes back where they need to be:
 
